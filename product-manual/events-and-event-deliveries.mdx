@@ -1,0 +1,40 @@
+---
+title: Events and Event Deliveries
+---
+## Events Log
+
+The Events log dashboard represent all webhook events pushed to Convoy. They do not have a status and do not contain delivery attempts. It is only a log of events published to Convoy. The events log page can be accessed from the sidebar.
+<Frame>![convoy event log](/images/event-log.png)</Frame>
+
+## Event delivery
+
+An event delivery is the combination of an endpoint and an event. For both incoming and outgoing webhooks project, an event can generate multiple event deliveries depending on the subscriptions. An event delivery can have any of the states below:
+
+-  `Scheduled`: In this state, the event delivery has been enqueued to the message broker, but a worker node is yet to pick it up for delivery.
+-  `Processing`: In this state, the event delivery has been retrieved from the message broker by a worker node, and the event is on its way out.
+-  `Success`: In this state, the event delivery delivered successfully. Here, the `Retry` button becomes `Force Retry`. This is used to retry a successful event in case of a false positive.
+-  `Retry`: In this state, the event delivery previously failed and the automatic retries have kicked in. Here, Convoy will continue to retry till the max attempts is reached.
+-  `Failed`: In this state, the event delivery has reached the maximum amount of automatic retries and failed to deliver the event or the endpoint failed to acknowledge delivery. Here, the `Retry` button becomes to active to trigger manual retries.
+-  `Discarded`: In this state, the endpoint has been set to `inactive`, so Convoy did not try to process events to the endpoint at all. See [here](https://getconvoy.io/docs/manual/endpoints#endpoint-state) on re-activating the endpoint.
+
+Event deliveries can be viewed on the **Events Deliveries** page below:
+
+<Frame>![Event delivery](/images/event-delivery.png)</Frame>
+
+## Debugging Event Deliveries
+
+For the most part, building a webhooks dashboard requires building the tools for finding and solving problems easily, this requires the ability to quickly find the affected payload, application, endpoint and most importantly affected customer.
+
+There are 2 ways to debug events in Convoy:
+
+### Event filtering
+
+You can filter events and event deliveries by date, time, status and endpoints respectively. <Frame>![convoy event filter](/images/event-filter.png)</Frame>
+
+### Event search
+
+Every hour Convoy tokenizes the entire webhook payload this enables you to search (using full-text search) the entire payload for any value in any field which enables you debug issues faster. Search tokens are retained till they are deleted at the end of the search retention period. <Frame>![convoy event search](/images/convoy-events-search.gif)</Frame>
+
+### Convoy CLI
+
+You can now debug your webhooks using the [stream command](https://getconvoy.io/docs/cli#stream). We have made available, a blog post on [how to debug your webhooks with the Convoy CLI](https://getconvoy.io/blog/debug-your-webhooks-with-convoy-cli/).

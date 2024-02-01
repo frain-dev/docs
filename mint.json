@@ -1,0 +1,239 @@
+{
+  "name": "Convoy",
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
+  "favicon": "/favicon.png",
+  "colors": {
+    "primary": "#477BD3",
+    "light": "#739FEA",
+    "dark": "#477BD3"
+  },
+  "topbarCtaButton": {
+    "name": "Start Your Project",
+    "url": "https://cloud.getconvoy.io/signup"
+  },
+  "anchors": [
+    {
+      "name": "Community",
+      "icon": "slack",
+      "url": "https://convoy-community.slack.com/join/shared_invite/zt-xiuuoj0m-yPp~ylfYMCV9s038QL0IUQ#/shared-invite/email"
+    },
+    {
+      "name": "GitHub",
+      "icon": "github",
+      "url": "https://github.com/frain-dev/convoy"
+    },
+    {
+      "name": "Tutorials",
+      "icon": "list",
+      "url": "https://getconvoy.io/blog?tag=Tutorial"
+    }
+  ],
+  "tabs": [
+    {
+      "name": "API Reference",
+      "url": "api-reference"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "Home",
+      "pages": [
+        "home/quickstart",
+        "home/introduction"
+      ]
+    },
+    {
+      "group": "Getting Started",
+      "pages": [
+        "getting-started/sending-webhook-example",
+        "getting-started/receiving-webhook-example"
+      ]
+    },
+   
+    {
+      "group": "Product Manual",
+      "pages": [
+        "product-manual/organizations-and-projects",
+        "product-manual/endpoints",
+        "product-manual/signatures",
+        "product-manual/sources",
+        "product-manual/subscriptions",
+        "product-manual/events-and-event-deliveries",
+        "product-manual/portal-links",
+        "product-manual/meta-events",
+        "product-manual/idempotency"
+
+      ]
+    },
+    {
+      "group": "Forward Proxies",
+      "pages": [
+        "forward-proxies/static-ips",
+        "forward-proxies/smokescreen",
+        "forward-proxies/nginx"
+
+      ]
+    },
+
+    {
+      "group": "Configurations",
+      "pages": [
+        "configurations/configuration"
+      ]
+    },
+    {
+      "group": "Deployment",
+      "pages": [
+        "deployment/architecture",
+        "deployment/install-convoy",
+        "deployment/troubleshooting"
+
+      ]
+    },
+
+    {
+      "group": "CLI",
+      "pages": [
+        "cli-file/cli"
+      ]
+    },
+
+      {
+        "group": "SDK",
+        "pages": [
+          "sdk/sdk"
+  
+        ]
+      },
+      {
+        "group": "Tools",
+        "pages": [
+          "tools/client-cli"
+        ]
+      },
+
+      {
+        "group": "Release Notes",
+        "pages": [
+          "release-notes/v-09",
+          "release-notes/v-08",
+          "release-notes/v-07",
+          "release-notes/v-06",
+          "release-notes/v-05"
+        ]
+      },
+
+      {
+        "group": "Resources",
+        "pages": [
+          "resources/glossary",
+          "resources/telemetry",
+          "resources/release-process"
+        ]
+      },
+      {
+        "group": "FAQ",
+        "pages": [
+          "faq/faq"
+        ]
+      },
+      
+    {
+      "group": "Introduction",
+      "pages": [
+        "api-reference/welcome",
+        "api-reference/authentication"
+      ]
+    },
+    {
+      "group": "Endpoints",
+      "pages": [
+        "api-reference/endpoints/list-all-endpoints",
+        "api-reference/endpoints/create-an-endpoint",
+        "api-reference/endpoints/retrieve-endpoint",
+        "api-reference/endpoints/update-an-endpoint",
+        "api-reference/endpoints/delete-endpoint",
+        "api-reference/endpoints/roll-endpoint-secret",
+        "api-reference/endpoints/pause-endpoint",
+        "api-reference/endpoints/toggle-endpoint-status"
+      ]
+    },
+    {
+      "group": "Event Deliveries",
+      "pages": [
+        "api-reference/event-deliveries/list-all-event-deliveries",
+        "api-reference/event-deliveries/batch-retry-event-delivery",
+        "api-reference/event-deliveries/force-retry-event-delivery",
+        "api-reference/event-deliveries/retrieve-an-event-delivery",
+        "api-reference/event-deliveries/retry-event-delivery"
+      ]
+    },
+    {
+      "group": "Delivery Attempts",
+      "pages": [
+        "api-reference/delivery-attempts/list-delivery-attempts",
+        "api-reference/delivery-attempts/retrieve-a-delivery-attempt"
+      ]
+    },
+    {
+      "group": "Events",
+      "pages": [
+        "api-reference/events/list-all-events",
+        "api-reference/events/create-an-event",
+        "api-reference/events/batch-replay-events",
+        "api-reference/events/dynamic-events",
+        "api-reference/events/fan-out-an-event",
+        "api-reference/events/retrieve-an-event",
+        "api-reference/events/replay-event"
+      ]
+    },
+    {
+      "group": "Meta Events",
+      "pages": [
+        "api-reference/meta-events/list-all-meta-events",
+        "api-reference/meta-events/retrieve-a-meta-event",
+        "api-reference/meta-events/retry-meta-event"
+      ]
+    },
+    {
+      "group": "Portal Links",
+      "pages": [
+        "api-reference/portal-links/list-all-portal-links",
+        "api-reference/portal-links/create-a-portal-link",
+        "api-reference/portal-links/retrieve-a-portal-link",
+        "api-reference/portal-links/update-a-portal-link",
+        "api-reference/portal-links/revoke-a-portal-link"
+      ]
+    },
+    {
+      "group": "Sources",
+      "pages": [
+        "api-reference/sources/list-all-sources",
+        "api-reference/sources/create-a-source",
+        "api-reference/sources/retrieve-a-source",
+        "api-reference/sources/update-a-source",
+        "api-reference/sources/delete-a-source"
+      ]
+    },
+    {
+      "group": "Subscriptions",
+      "pages": [
+        "api-reference/subscriptions/list-all-subscriptions",
+        "api-reference/subscriptions/create-a-subscription",
+        "api-reference/subscriptions/validate-subscription-filter",
+        "api-reference/subscriptions/validate-subscription-filter-1",
+        "api-reference/subscriptions/retrieve-a-subscription",
+        "api-reference/subscriptions/update-a-subscription",
+        "api-reference/subscriptions/delete-subscription"
+      ]
+    }
+  ],
+  "backgroundImage": "/background.png",
+  "footerSocials": {
+    "twitter": "https://twitter.com/getconvoy?lang=en",
+    "linkedin": "https://www.linkedin.com/company/convoy-webhooks/"
+  }
+}

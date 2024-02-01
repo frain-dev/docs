@@ -1,0 +1,16 @@
+---
+title: "Authentication"
+description: "Authenticating against the Convoy API requires an API key. You can retrieve and manage your API keys from your project settings dashboard. "
+---
+
+Your API keys are sensitive information. Please do not share in publicly accessible areas such as GitHub, client-side code, and so forth. 
+
+Authorization headers should be in the following format: `Authorization: Bearer API Key`
+
+```  cURL
+curl https://dashboard.getconvoy.io/api/v1/projects/{projectID}/endpoints
+-H "Authorization: Bearer API_KEY"
+-H "Content-Type: application/json"
+-d '{ "name": "fintech app" }'
+-X POST
+```
