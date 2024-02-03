@@ -1,7 +1,8 @@
 ---
 title: Architecture
-description: Convoy is made up several services working in tandem. Below is an architecture diagram and the traffic pattern.
 ---
+
+Convoy is made up several services working in tandem. Below is an architecture diagram and the traffic pattern.
 
 <Frame>![Convoy Architecture](/images/convoy-architecture-2.png)</Frame>
 
@@ -26,8 +27,6 @@ These workers are designed to be stateless and can be scaled horizontally to inc
 The egress service is a HTTP Connect Proxy that is directly responsible for sending webhook events to the client endpoints. The services provides two major benefits - static ips, because it is a connect proxy, we are able to maintain a predefined set of IP address on all requests forwarded to client endpoints. Secondly, the egress service prevents Server-Side Request Forgery (SSRF) by creating a blacklist of URLs that cannot receive requests to prevent malicious users from trigger unexpected behaviours in our cloud environment.
 
 By its nature, the egress service should be deployed in a static environment (i.e. specific VMs with IP Address pre-defined). Depending on your availability requirements, we suggest you deploy at least 3 instances and place a load balancer in front the egress services to distribute traffic evenly. See the CLI details [here](https://getconvoy.io/docs/cli#egress)
-
-This feature is only available in Convoy Convoy, if you would like to deploy this to your environment, please reach out to us at [\[email protected\]](https://getconvoy.io/cdn-cgi/l/email-protection).
 
 ### Scheduler
 
