@@ -60,6 +60,14 @@
       ]
     },
     {
+      "group": "Deployment",
+      "pages": [
+        "deployment/architecture",
+        "deployment/install-convoy",
+        "deployment/troubleshooting"
+      ]
+    },
+    {
       "group": "Product Manual",
       "pages": [
         "product-manual/organizations-and-projects",
@@ -79,15 +87,6 @@
         "forward-proxies/static-ips",
         "forward-proxies/smokescreen",
         "forward-proxies/nginx"
-      ]
-    },
-
-    {
-      "group": "Deployment",
-      "pages": [
-        "deployment/architecture",
-        "deployment/install-convoy",
-        "deployment/troubleshooting"
       ]
     },
     {
