@@ -48,6 +48,7 @@
     {
       "group": "Getting Started",
       "pages": [
+        "getting-started/use-convoy-as-a-proxy",
         "getting-started/sending-webhook-example",
         "getting-started/receiving-webhook-example"
       ]
