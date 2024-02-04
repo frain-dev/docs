@@ -63,8 +63,14 @@
       "group": "Deployment",
       "pages": [
         "deployment/architecture",
-        "deployment/install-convoy",
-        "deployment/troubleshooting"
+        {
+          "group": "Install Convoy",
+          "pages": [
+            "deployment/install-convoy/docker",
+            "deployment/install-convoy/kubernetes",
+            "deployment/install-convoy/troubleshooting"
+          ]
+        }
       ]
     },
     {
