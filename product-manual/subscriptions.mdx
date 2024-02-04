@@ -1,7 +1,8 @@
 ---
 title: Subscriptions
-description: "Subscriptions are conduits through which events are routed from a source to a destination (endpoint) in Convoy. In addition to defining how to deliver events, subscriptions can be used to specify what retry strategy to use and how many times you should receive alerts for failing event attempts. They can also be used to trigger a circuit breaker when an endpoint is returning an error multiple times in a row. They represent the core of event routing for both Incoming and Outgoing events."
 ---
+
+Subscriptions are conduits through which events are routed from a source to a destination (endpoint) in Convoy. In addition to defining how to deliver events, subscriptions can be used to specify what retry strategy to use and how many times you should receive alerts for failing event attempts. They can also be used to trigger a circuit breaker when an endpoint is returning an error multiple times in a row. They represent the core of event routing for both Incoming and Outgoing events.
 
 ## How Event Routing Works?
 
@@ -130,10 +131,9 @@ This filter matches event which directly does not match the event type in the we
 
 <Frame>![$neq subscription filter](/images/subscription-ne-filter.png)</Frame>
 
-#### $or and $and filters
+#### \$or and \$and filters
 
 This filter is used to match multiple conditions defined in the schema.
-
 
 
 ```  $or filter
@@ -149,8 +149,6 @@ This filter is used to match multiple conditions defined in the schema.
 }
 
 ```
-
-
 
 
 ```  $and filter
@@ -175,7 +173,6 @@ This filter is used to match multiple conditions defined in the schema.
 }
 
 ```
-
 
 <Frame>![$and filter](/images/subscription-or-filter.png)</Frame>
 

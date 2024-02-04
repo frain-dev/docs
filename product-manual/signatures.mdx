@@ -1,6 +1,7 @@
 ---
 title: Signatures
 ---
+
 Webhook signatures are strings used to verify the validity of a webhook event sent to Convoy. This signature is passed as header values in the format: `X-Convoy-Signature`.
 
 The signature encoding, hashing algorithm and signing secret are all retrieved from your project settings. These values are used in validating the webhook signature in the header accompanying the webhook event.
@@ -97,60 +98,15 @@ Compare the signatures from the request header to the signature computed from th
 
 ### Caveat: Ensuring exact JSON payload match
 
--  **Ordering** - According to the [JSON RFC 4627](https://www.ietf.org/rfc/rfc4627.txt). JSON objects are an unordered collection, see below:
-    
-    ```
+-  **Ordering:** According to the [JSON RFC 4627](https://www.ietf.org/rfc/rfc4627.txt). JSON objects are an unordered collection, see below:
+```
 An object is an unordered collection of zero or more name/value
 pairs, where a name is a string and a value is a string, number,
 boolean, null, object, or array.
-
 ```
 
-    
-    With this the order shouldn't matter, but if you decide to switch the key ordering for any reason, the resulting hash would be different. You should process as received.
-    
--  **Whitespaces** - To eliminate any ambiguities in the structure of the payload used to generate the signature across languages and stacks. Convoy strips out all whitespace characters from the payload to generate the hash. See the following examples to know what's correct:
-    
-    
-    
-    ```json ❌ Wrong
-{
-    "event": {
-		"id": "5ac64822-4adc-4fda-ade0-410becf0de4f",
-		"event_type": "incident.priority_updated",
-		"resource_type": "incident",
-		"occurred_at": "2020-10-02T18:45:22.169Z",
-		"agent": {
-			"id": "PLH1HKV",
-			"self": "https://api.pagerduty.com/users/PLH1HKV",
-			"summary": "Tenex Engineer",
-			"type": "user_reference"
-		}
-	}
-}
+With this the order shouldn't matter, but if you decide to switch the key ordering for any reason, the resulting hash would be different. You should process as received.
 
-```
-    
-```json ❌ Wrong
-{\n  \"event\": {\n    \"id\": \"5ac64822-4adc-4fda-ade0-410becf0de4f\",\n    \"event_type\": \"incident.priority_updated\",\n    \"resource_type\": \"incident\",\n    \"occurred_at\": \"2020-10-02T18:45:22.169Z\",\n    \"agent\": {\n      \"id\": \"PLH1HKV\",\n      \"self\": \"https://api.pagerduty.com/users/PLH1HKV\",\n      \"summary\": \"Tenex Engineer\",\n      \"type\": \"user_reference\"\n    }\n  }\n}
-
-```
- 
-    
-```json ✅ Correct
-{
-	"event": {
-		"id": "5ac64822-4adc-4fda-ade0-410becf0de4f",
-		"event_type": "incident.priority_updated",
-		"resource_type": "incident",
-		"occurred_at": "2020-10-02T18:45:22.169Z",
-		"agent": { "id": "PLH1HKV", "self": "https://api.pagerduty.com/users/PLH1HKV", "summary": "Tenex Engineer", "type": "user_reference" }
-	}
-}
-
-```
-
-    
 
 ### References
 

@@ -11,7 +11,7 @@ To configure Smokescreen as a forward proxy for Convoy, follow the steps [here](
 
 Start smokcscreen by running:
 
-```
+```bash terminal
 smokescreen --listen-port <your-desired-proxy-port>
 
 ```
@@ -19,7 +19,7 @@ smokescreen --listen-port <your-desired-proxy-port>
 
 In your convoy.json file, you need to specify the url to smokescreen as your proxy value:
 
-```
+```bash terminal
 "server": {
   "http": {
     "proxy": "<smokescreen-url>",
@@ -39,7 +39,7 @@ For more extensive documentation of Smokescreen's configuration see [here](https
 
 Smokescreen allows you to specify access control lists, these help prevent IP spoofing attacks.
 
-```
+```bash terminal
 ---
 version: v1
 services:

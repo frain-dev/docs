@@ -9,7 +9,7 @@ Using Docker, here's how you can build a custom Nginx image with the `ngx_http_p
 
 -  Define your `Dockerfile` file:
 
-``` 
+```bash terminal
 FROM nginx:1.25.1-alpine
 
 ENV NGINX_VERSION 1.25.1
@@ -98,7 +98,7 @@ CMD ["nginx", "-g", "daemon off;"]
 
 -  Add the `nginx.conf` file with the forward proxy configuration
 
-``` 
+```bash terminal
 load_module /usr/lib/nginx/modules/ngx_http_proxy_connect_module.so;
 
 worker_processes  auto;
@@ -131,7 +131,7 @@ http {
 
 Once you've built the image and have it running in a container, you can now update your `convoy.json` with the proxy URL.
 
-``` 
+```bash terminal
 "server": {
   "http": {
     "proxy": "http://localhost:8080",
