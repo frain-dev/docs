@@ -54,15 +54,10 @@
       ]
     },
     {
-      "group": "Configuration",
-      "pages": [
-        "configuration/configuration"
-      ]
-    },
-    {
       "group": "Deployment",
       "pages": [
         "deployment/architecture",
+        "deployment/configuration",
         {
           "group": "Install Convoy",
           "pages": [
@@ -84,21 +79,22 @@
         "product-manual/events-and-event-deliveries",
         "product-manual/portal-links",
         "product-manual/meta-events",
-        "product-manual/idempotency"
+        "product-manual/idempotency",
+        "product-manual/static-ips",
+        {
+          "group": "Forward Proxies",
+          "pages": [
+            "product-manual/forward-proxies/nginx",
+            "product-manual/forward-proxies/smokescreen"
+          ]
+        }
       ]
     },
     {
-      "group": "Forward Proxies",
+      "group": "Command Line",
       "pages": [
-        "forward-proxies/static-ips",
-        "forward-proxies/smokescreen",
-        "forward-proxies/nginx"
-      ]
-    },
-    {
-      "group": "CLI",
-      "pages": [
-        "cli-file/cli"
+        "cli-file/convoy",
+        "cli-file/convoy-cli"
       ]
     },
     {
@@ -108,19 +104,9 @@
       ]
     },
     {
-      "group": "Tools",
-      "pages": [
-        "tools/client-cli"
-      ]
-    },
-    {
       "group": "Release Notes",
       "pages": [
-        "release-notes/v-09",
-        "release-notes/v-08",
-        "release-notes/v-07",
-        "release-notes/v-06",
-        "release-notes/v-05"
+        "release-notes/releases"
       ]
     },
     {
