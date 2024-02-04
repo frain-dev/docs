@@ -1,0 +1,28 @@
+---
+title: Docker
+---
+
+import DefaultCredentialsComponent from '/snippets/default-credentials-component.mdx';
+
+## Requirements
+
+-  Docker 20.10.11+
+-  Compose 1.29.2+
+
+## Deploy Locally
+
+```   
+# Get the code
+$ git clone https://github.com/frain-dev/convoy.git
+
+# Go to the Convoy folder
+$ cd convoy
+
+# Start Services
+$ docker compose -f configs/local/docker-compose.yml up
+
+```
+
+## Login to your instance
+
+<DefaultCredentialsComponent />
