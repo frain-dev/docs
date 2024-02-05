@@ -5,7 +5,33 @@ title: Kubernetes
 import DefaultCredentialsComponent from '/snippets/default-credentials-component.mdx';
 
 
+## Prerequisites
+- A running Kubernetes cluster.
+- Helm 3 or above. See Installing [Helm](https://helm.sh/docs/intro/install).
+- A Postgres instance
+- A Redis instance
 
+<Note>We provide Postgres and Redis helm charts for testing and evaluation. Please do not use them in production environments</Note>
+
+Add Convoy’s chart repository to Helm:
+```shell
+helm repo add convoy https://frain-dev.github.io/helm-charts
+```
+
+Update the chart repository:
+```shell
+helm repo update
+```
+
+Install the chart:
+```shell
+helm install --values values.yaml convoy convoy/convoy -n convoy
+```
+
+Upgrade the chart:
+```shell
+helm upgrade --values values.yaml convoy convoy/convoy -n convoy
+```
 
 ## Login to your instance
 
