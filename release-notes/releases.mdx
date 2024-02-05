@@ -9,6 +9,18 @@ title: Releases
 - **OTel Support:** We added support for Opentelemetry to push telemetry to traces to any OTel supported backend.
 
 
+### Upgrading 
+
+To upgrade from `23.11.x` to `24.1.x`, run the following query:
+
+```sql Update Endpoint Table
+UPDATE convoy.endpoints
+SET http_timeout = '5s',
+    rate_limit_duration = '5s'
+WHERE http_timeout IS NULL OR http_timeout = '' 
+   OR rate_limit_duration IS NULL OR rate_limit_duration = '';
+```
+
 ### Patches
 
 The changelogs for this minor release version and any maintenance versions are listed below.
