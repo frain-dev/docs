@@ -9,8 +9,9 @@ title: Releases
 - **OTel Support:** We added support for OpenTelemetry. You can now receive traces to any OTel-supported backend like Sentry, Signoz, Datadog, etc.
 
 ### Upgrading 
+To upgrade from `23.11.x` to `24.1.x`, check the following:
 
-To upgrade from `23.11.x` to `24.1.x`, run the following query:
++ Run the query below to update invalid columns in the `endpoints` table.
 
 ```sql Update Endpoint Table
 UPDATE convoy.endpoints
@@ -20,10 +21,22 @@ WHERE http_timeout IS NULL OR http_timeout = ''
    OR rate_limit_duration IS NULL OR rate_limit_duration = '';
 ```
 
++ To ensure the api does not break for your application, select the correct api version in your `convoy.json`
+```bash terminal
+// In convoy.json
+{
+    "api_version": "0001-01-01"
+}
+
+// In environment variables 
+CONVOY_API_VERSION="0001-01-01"
+```
+
 ### Patches
 
 The changelogs for this minor release version and any maintenance versions are listed below.
 
+- [Convoy v24.1.3](https://github.com/frain-dev/convoy/releases/tag/v24.1.3)
 - [Convoy v24.1.2](https://github.com/frain-dev/convoy/releases/tag/v24.1.2)
 - [Convoy v24.1.1](https://github.com/frain-dev/convoy/releases/tag/v24.1.1)
 
