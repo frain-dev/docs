@@ -216,6 +216,7 @@
     }
   ],
   "backgroundImage": "/background.png",
+  "feedback.thumbsRating": true,
   "footerSocials": {
     "twitter": "https://twitter.com/getconvoy?lang=en",
     "linkedin": "https://www.linkedin.com/company/convoy-webhooks/"
