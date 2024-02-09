@@ -81,6 +81,7 @@
         "product-manual/meta-events",
         "product-manual/idempotency",
         "product-manual/static-ips",
+        "product-manual/webhooks-documentation",
         {
           "group": "Forward Proxies",
           "pages": [
