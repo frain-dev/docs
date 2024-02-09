@@ -132,8 +132,28 @@ Supported values for them are:
     </Tab>
 
     <Tab title="handler.js">
-        ```Javascript
+        <Note> This example in written Express, but similar can be applied to other frameworks/libraries. </Note>
+        ```js
+        import { Webhook } from 'convoy.js';
 
+        // Using Express
+        app.post("/my/webhook/url", function(req, res) {
+            // verfiy an advanced signature
+            const webhook = new Webhook({
+                header: 't=2048976161,v1=afdb90313acfa15a3fc425755ae651a204947710315bb2a90bccaa87fce88998,v1=fLBDCBUiX5iIs0L5zfNq45h23EkX1HAMpFF+2lHrnes=',
+                payload: { email: 'test@gmail.com' },
+                secret: '8IX9njirDG',
+                hash: 'sha256',
+                encoding: 'base64',
+            });
+
+            if (webhook.verify()) {
+                // Retrieve the request's body
+                const event = req.body;
+                // Do something with event
+            }
+            res.send(200);
+        });
         ```
     </Tab>
 
