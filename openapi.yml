@@ -4676,8 +4676,22 @@ paths:
       summary: Update a subscription
       tags:
         - Subscriptions
+webhooks:
+  # Each webhook needs a name
+  newPet:
+    # This is a Path Item Object, the only difference is that the request is initiated by the API provider
+    post:
+      requestBody:
+        description: Information about a new pet in the system
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Pet"
+      responses:
+        "200":
+          description: Return a 200 status to indicate that the data was received successfully
 servers:
-  - url: https://dashboardxy.getconvoy.io/api
+  - url: https://dashboard.getconvoy.io/api
 tags:
   - description: Organisation related APIs
     name: Organisations
