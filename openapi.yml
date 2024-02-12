@@ -4677,7 +4677,7 @@ paths:
       tags:
         - Subscriptions
 servers:
-  - url: https://dashboard.getconvoy.io/api
+  - url: https://dashboardxy.getconvoy.io/api
 tags:
   - description: Organisation related APIs
     name: Organisations
