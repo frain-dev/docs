@@ -168,6 +168,7 @@
       "pages": [
         "api-reference/events/list-all-events",
         "api-reference/events/create-an-event",
+        "api-reference/events/create-a-broadcast-event",
         "api-reference/events/batch-replay-events",
         "api-reference/events/dynamic-events",
         "api-reference/events/fan-out-an-event",
