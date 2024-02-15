@@ -32,10 +32,6 @@ The egress service is a HTTP Connect Proxy that is directly responsible for send
 
 By its nature, the egress service should be deployed in a static environment (i.e. specific VMs with IP Address pre-defined). Depending on your availability requirements, we suggest you deploy at least 3 instances and place a load balancer in front the egress services to distribute traffic evenly. See the CLI details [here](https://getconvoy.io/docs/cli#egress)
 
-### Scheduler
-
-The scheduler service is responsible for triggering important periodic tasks. To avoid, duplicate jobs, there should only exist one scheduler across your deployment. See the CLI details [here](https://getconvoy.io/docs/cli#scheduler)
-
 ### Ingest
 
 This is a stateless worker server used to consume webhook events from message brokers. It constantly polls source configuration from the database and consumes events from the broker. It is not responsible for processing these events other than consuming from the broker and writing to redis to be consumed by a standard worker. See the CLI details [here](https://getconvoy.io/docs/cli#ingest)
