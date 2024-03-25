@@ -2787,7 +2787,7 @@ paths:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
+                  - $ref: #/components/schemas/util.ServerResponse'
                   - properties:
                       data:
                         $ref: '#/components/schemas/handlers.Stub'
@@ -2822,6 +2822,7 @@ paths:
         - Events
     post:
       description: This endpoint creates an endpoint event
+      operationId: CreateEndpointEvent
       parameters:
         - description: Project ID
           in: path
