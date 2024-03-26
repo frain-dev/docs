@@ -6973,12 +6973,6 @@
                   "allOf": [
                     {
                       "properties": {
-                        "data": {
-                          "items": {
-                            "type": "integer"
-                          },
-                          "type": "array"
-                        },
                         "message": {
                           "type": "string"
                         },
