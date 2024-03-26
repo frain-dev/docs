@@ -1684,12 +1684,7 @@ paths:
           content:
             application/json:
               schema:
-                allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/models.EndpointResponse'
-                    type: object
+                $ref: '#/components/schemas/util.ServerResponse'
           description: OK
         "400":
           content:
