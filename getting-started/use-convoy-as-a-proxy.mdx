@@ -29,7 +29,7 @@ with one API. No need for creating any resources upfront. Let's dive in!
   <Step title="Push event. 🎉">
   ```bash terminal
   curl --request POST \
-  --url {base_url}/api/v1/projects/{project_id}/events \
+  --url {base_url}/api/v1/projects/{project_id}/events/dynamic \
   --header 'Authorization: Bearer {api_key}' \
   --header 'Content-Type: application/json' \
   --data '{
