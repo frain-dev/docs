@@ -28,7 +28,7 @@ It is a good practise to have a mechanism to store events, so you can always pus
 | -------------------- | ----------------------------------| ------------------------ |
 | 01HRD0B6MTEWZZ86ZVVM | `{"event_type": "order.created"}` | 2023-10-14T22:11:20+0000 |
 
-Use the delivered_at column to determine if you’ve handed over the event to the webhooks gateway / message broker, so you can delete it afterwards. Use the id field as the Idempotency key so you can uniquely present each webhook to the gateway.
+Use the `delivered_at` column to determine if you’ve handed over the event to the webhooks gateway / message broker, so you can delete it afterwards. Use the `id` field as the `Idempotency key` so you can uniquely present each webhook to the gateway.
 
 ## Webhooks ordering
 It is common for consumers to request for webhooks to sent in a particular order so they can apply updates to their resources in a deterministic manner. However, this is an anti-pattern. Webhooks are designed to be sent out of order, because ordering significantly increases the complexity of the system. In this section we describe techniques to work around this. 
