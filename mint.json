@@ -46,11 +46,12 @@
       ]
     },
     {
-      "group": "Getting Started",
+      "group": "Guides",
       "pages": [
-        "getting-started/use-convoy-as-a-proxy",
-        "getting-started/sending-webhook-example",
-        "getting-started/receiving-webhook-example"
+        "guides/sending-webhook-example",
+        "guides/receiving-webhook-example",
+        "guides/use-convoy-as-a-proxy",
+        "guides/best-practices-for-generating-webhook-events"
       ]
     },
     {
@@ -142,8 +143,7 @@
         "api-reference/endpoints/update-an-endpoint",
         "api-reference/endpoints/delete-endpoint",
         "api-reference/endpoints/roll-endpoint-secret",
-        "api-reference/endpoints/pause-endpoint",
-        "api-reference/endpoints/toggle-endpoint-status"
+        "api-reference/endpoints/pause-endpoint"
       ]
     },
     {
