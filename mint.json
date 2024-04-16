@@ -131,7 +131,8 @@
         "api-reference/welcome",
         "api-reference/authentication",
         "api-reference/errors",
-        "api-reference/pagination"
+        "api-reference/pagination",
+	"api-reference/versioning"
       ]
     },
     {
