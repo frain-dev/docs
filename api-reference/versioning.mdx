@@ -15,21 +15,20 @@ Convoy considers the following changes to be backwards-compatible:
 - Adding new properties to existing API responses.
 - Changing the order of properties in existing API responses.
 - Changing the length or format of opaque strings, such as object IDs, error messages, and other human-readable strings.
-	- This includes adding or removing fixed prefixes (such as `ch_` on charge IDs).
- 	- Make sure that your integration can handle Stripe-generated object IDs, which can contain up to 255 characters. For example, if you’re using MySQL, store the IDs in a `VARCHAR(255) COLLATE utf8_bin` column (the `COLLATE` configuration provides case-sensitivity during lookups).
+	- This includes adding or removing fixed prefixes (such as `en_` on endpoint IDs).
+ 	- Make sure that your integration can handle Convoy-generated object IDs, which can contain up to 255 characters. For example, if you’re using MySQL, store the IDs in a `VARCHAR(255) COLLATE utf8_bin` column (the `COLLATE` configuration provides case-sensitivity during lookups).
 - Adding new event types
 	- Make sure that your webhook listener gracefully handles unfamiliar event types.
 
-## Versions
-
-### Compatibility Matrix 
+## Compatibility Matrix 
+The table below shows the Convoy version we introduced new API versions.
 
 | Convoy Version | API Version |
 |----------------|-------------|
 | v24.1.1        | 2024-01-01  |
 
 
-### Breaking Changes
+## Breaking Changes
 
 #### 2024-01-01
 - Changed `http_timeout` and `rate_limit_duration` in endpoints from duration string to int.
