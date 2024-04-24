@@ -5,6 +5,65 @@ title: Events and Event Deliveries
 'twitter:description': An event delivery is the combination of an endpoint and an event. For both incoming and outgoing webhooks project, an event can generate multiple event deliveries depending on the subscriptions.
 'twitter:url': https://docs.getconvoy.io/product-manual/events-and-event-deliveries
 ---
+## Ingesting Events
+Convoy supports four different message formats to ingest webhook events into Convoy. This section will help you understand each one of them so that you can select an appropriate format for your use case. All these formats can both be ingested from the API or through any message broker.
+
+### Directed
+
+This is the most common structure for ingesting events. With this, you supply an `endpoint_id` and the `data` to push to the endpoint. This integration requires you to create the customer’s endpoint ahead of time and save the `endpoint_id` so you can use it when dispatching to Convoy. Use this [endpoint](/api-reference/events/create-an-event) to ingest this structure via the API. See the full payload below.
+
+```json Format
+{
+  "custom_headers": {},
+  "data": {},
+  "endpoint_id": "{string}",
+  "event_type": "{string}",
+  "idempotency_key": "{string}"
+}
+```
+
+### Fanout
+
+This structure is used to fan out an event to multiple endpoints for a given tenant. It is common and best practise to enable each customer have more than one endpoint and subscribe to specific events on each endpoint. You can use this structure to offload the task of determining which of the customers endpoint to receive the event. All you need to supply in this structure is the `owner_id`, which represents a unique customer in your business. Use this [endpoint](/api-reference/events/fan-out-an-event) to ingest this structure via the API.
+
+```json Format 
+{
+  "custom_headers": {},
+  "data": {},
+  "owner_id": "{string}",
+  "event_type": "{string}",
+  "idempotency_key": "{string}"
+}
+```
+
+### Broadcast
+
+This one is used to broadcast one event to multiple tenants in your system. A use case for this are web3/blockchain events, where you want to broadcast a social event like `cast.created` to multiple customers. With this structure, you will specify neither `endpoint_id` nor `owner_id` and Convoy will try to dispatch the event to all endpoints except the endpoint specifically exclude itself through it’s subscription. Use this [endpoint](/api-reference/events/create-a-broadcast-event) to ingest this structure via the API.
+
+```json Format
+{
+  "custom_headers": {},
+  "data": {},
+  "event_type": "{string}",
+  "idempotency_key": "{string}"
+}
+```
+
+### Dynamic
+
+This one is used to ingest and dispatch webhooks without creating endpoints ahead of time. In this mode, you’re using Convoy as a proxy to deliver webhooks. Use this [endpoint](/api-reference/events/dynamic-events) to ingest this structure via the API.
+
+```json Format 
+{
+  "url": "{endpoint_url}",
+  "secret": "{endpoint_secret}",
+  "data": "{data}",
+  "event_type": "{event_type}",
+  "event_types": ["{event_type}"],
+  "idempotency_key": ""
+}
+```
+
 ## Events Log
 
 The Events log dashboard represent all webhook events pushed to Convoy. They do not have a status and do not contain delivery attempts. It is only a log of events published to Convoy. The events log page can be accessed from the sidebar.
