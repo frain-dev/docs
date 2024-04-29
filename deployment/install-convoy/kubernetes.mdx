@@ -38,6 +38,47 @@ Upgrade the chart:
 helm upgrade --values values.yaml convoy convoy/convoy -n convoy
 ```
 
+## ArgoCD Configuration
+Convoy uses helm hooks to trigger migrations every time the charts are installed or upgraded. These hooks alone won't work for an ArgoCD installation since they are not compatible.
+
+```yaml Helm hooks
+"helm.sh/hook": post-install,post-upgrade
+"helm.sh/hook-delete-policy": before-hook-creation
+```
+
+You can apply this ArgoCD definition to run migrations on your cluster when the chart is installed and upgraded
+```yaml ArgoCD Definition
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: convoy
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: 'https://frain-dev.github.io/helm-charts'
+    targetRevision: '2.3.0'
+    chart: convoy
+    helm:
+      releaseName: convoy
+      valuesObject:
+        migrate:
+          jobAnnotations:
+            argocd.argoproj.io/hook: Sync
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: convoy
+  syncPolicy:
+    syncOptions:
+    - ServerSideApply=true
+    - CreateNamespace=true
+    automated:
+      selfHeal: true
+      prune: true
+```
+
 ## Login to your instance
 
 <DefaultCredentialsComponent />

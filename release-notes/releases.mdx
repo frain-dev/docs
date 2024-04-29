@@ -2,6 +2,34 @@
 title: Releases
 ---
 
+## v24.4.x
+
+### Release Highlights
+- Implemented an in-memory store.
+- Re-implement rate limiter using postgres.
+- Payloads from message broker sources can be mutated using javascript functions.
+
+All API Changes are backward-compatible.
+You shouldn't need to change any code to get them to work.
+You may need to specify the previous version --the latest being **2024-04-01**--
+to ensure the api does not break for your application.
+
+```bash terminal
+// In convoy.json
+{
+    "api_version": "2024-01-01"
+}
+
+// In environment variables
+CONVOY_API_VERSION="2024-01-01"
+```
+
+### Patches
+
+The changelogs for this minor release version and any maintenance versions are listed below.
+
+- [Convoy v24.4.1](https://github.com/frain-dev/convoy/releases/tag/v24.4.1)
+
 ## v24.1.x
 
 ### Release Highlights
@@ -11,7 +39,7 @@ title: Releases
 ### Upgrading 
 To upgrade from `23.11.x` to `24.1.x`, check the following:
 
-+ Run the query below to update invalid columns in the `endpoints` table.
+- Run the query below to update invalid columns in the `endpoints` table.
 
 ```sql Update Endpoint Table
 UPDATE convoy.endpoints

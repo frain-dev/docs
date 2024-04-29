@@ -23,12 +23,17 @@ Convoy considers the following changes to be backwards-compatible:
 ## Compatibility Matrix 
 The table below shows the Convoy version we introduced new API versions.
 
-| Convoy Version | API Version |
-|----------------|-------------|
-| v24.1.1        | 2024-01-01  |
+| Convoy Version | API Version  |
+|----------------|--------------|
+| `v24.4.1`      | `2024-04-01` |
+| `v24.1.1`      | `2024-01-01` |
 
 
 ## Breaking Changes
+
+#### 2024-04-01
+- changed endpoint `title` to `name`
+- changes endpoint `target_url` to `url`
 
 #### 2024-01-01
 - Changed `http_timeout` and `rate_limit_duration` in endpoints from duration string to int.
