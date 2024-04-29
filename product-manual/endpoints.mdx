@@ -21,7 +21,7 @@ An endpoint can have any of the states below:
 
 Because webhooks rely on a shared secret that needs to be rotated periodically to be kept safe, Convoy ships with a mechanism for zero downtime key rotation which is crucial for webhooks as it ensures continuous and secure operations. It facilitates regular cryptographic key rotations, mitigating risks associated with key compromises, while ensuring there's no service interruption, which is vital for real-time processing of webhooks events. It also aids in meeting regulatory compliance, maintaining clear audit trails, and can be automated to reduce operational burdens of key rotations. Additionally, it fosters customer trust by showcasing a commitment to security and service availability,
 
-This can be triggered from both the API -- [this endpoint](https://convoy.readme.io/reference/put_api-v1-projects-projectid-endpoints-endpointid-expire-secret) and the dashboard, see below: <Frame>![Expire Secret](/images/expire-secret.png)</Frame>
+This can be triggered from both the API -- [this endpoint](/api-reference/endpoints/roll-endpoint-secret) and the dashboard, see below: <Frame>![Expire Secret](/images/expire-secret.png)</Frame>
 
 Once the secret is expired, conovy will send more than one message digest pending the full expiration of the old secret. You can learn more about [signatures](https://getconvoy.io/docs/manual/signatures)
 
