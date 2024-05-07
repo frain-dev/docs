@@ -6,15 +6,55 @@ title: Sources
 'twitter:url': https://docs.getconvoy.io/product-manual/sources
 ---
 
-Sources are how events are ingested into Convoy. In this section, we explain the different types of sources and their use cases. Convoy currently supports three types of sources - REST API, HTTP Ingested and Message Brokers.
+Sources are how events are ingested into Convoy. In this section, we explain the different types of sources and their use cases. Convoy currently supports three types of sources:
+- An authenticated REST API
+- An unauthenticated ingest-API
+- Message Brokers
 
 ## REST API
 
-This is an authenticated API to push events to a Convoy instance. It is designed specifically for an outgoing projects to push events to a specific endpoint. This source is only and automatically available for all outgoing projects.
+This is an authenticated API used to push events to a Convoy instance.
+It is designed specifically for outgoing projects to send events to a specific endpoint,
+a number of endpoints or all endpoints.
+This source is only and automatically available for all outgoing projects.
+
+```js payload structure
+{
+    "owner_id": "string, optional",
+    "event_type": "string, required",
+    "data": "object, required",
+    "custom_headers": "object, optional",
+    "idempotency_key": "string, optional",
+    "endpoint_id": "string, depends"
+}
+```
+
+- `owner_id`: Can be any arbitrary string, it is used to group endpoints together. We recommend setting it some internal id in your system
+- `event_type`: The type of your event. e.g., `customer.created`, `customer.updated`.
+- `data`: The data being sent.
+- `custom_headers`: Any values included will be forwarded to the endpoints as HTTP header.
+- `idempotency_key`: An identifier that is used to deduplicate events.
+- `endpoint_id`: The id of the endpoint to send the event to.
+
+```js sample payload
+{
+    "endpoint_id": "01HVNHCYTFW7MDKMQ43YFS20HZ",
+    "owner_id": "01HVNHE3Z5EKKR9QZJVCH9XRWW",
+    "event_type": "sample",
+    "data": {},
+    "custom_headers": {
+        "x-sample-header": "sample-value"
+    },
+    "idempotency_key": "test123"
+}
+```
 
 ## HTTP Ingestion
 
-This is an unauthenticated API to receive webhook events from third-party webhook providers like Github, Shopify etc, It is designed for incoming projects to receive events from any provider. For each provider, a source needs to be configured with its necessary verification. Once configured, we provide you with a unique link to be supplied to the provider.
+This is an unauthenticated API to receive webhook events from third-party webhook providers like GitHub, Shopify etc.,
+It is designed for incoming projects to receive events from any provider.
+For each provider, a source needs to be configured with its necessary verification.
+Once configured, we provide you with a unique link to be supplied to the provider.
 
 ### Verification
 
@@ -98,7 +138,5 @@ To ingest events using Amazon SQS, follow the steps outlined below:
 
 ### Kafka
 
-The Kafka integration uses consumer groups for high availability and fault tolerance.
-
-    
-The payload is exactly the same as the one used with our REST API.
+The Kafka integration reads a messages off a topic using a consumer group for high availability and fault tolerance.
+> The number of partitions for the topic should match the number of workers.
