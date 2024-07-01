@@ -112,6 +112,12 @@
       ]
     },
     {
+      "group": "Cloud",
+      "pages": [
+        "cloud/cloud-upgrade-policy"
+      ]
+    },
+    {
       "group": "Resources",
       "pages": [
         "resources/glossary",
