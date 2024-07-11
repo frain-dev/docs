@@ -4,15 +4,26 @@ title: Google PubSub
 
 To ingest events using Google PubSub, follow the steps outlined below:
 
--  **Create a PubSub Topic** <Frame>![create google pubsub topic](/images/google-pubsub.png)</Frame>
-
--  **Create a Subscription** <Frame>![create a subscription](/images/create-google-subscription.png)</Frame>
-
--  **Create a Service Account with PubSub Admin Role** <Frame>![create service account](/images/create-service-account.png)</Frame>
-
--  **Generate Service Account JSON Key** <Frame>![generate service account json key](/images/create-service-account-key.png)</Frame>
-
--  **Configure Source** Supply your `Project ID`, `Topic Name`, `Subscription` and upload your service account json key.
+<Steps>
+    <Step title="Create a PubSub Topic">
+        <Frame>![create google pubsub topic](/images/google-pubsub.png)</Frame>
+    </Step>
+    <Step title="Create a Subscription">
+        <Frame>![create a subscription](/images/create-google-subscription.png)</Frame>
+    </Step>
+    <Step title="Create a Service Account with PubSub Admin Role">
+        <Frame>![create service account](/images/create-service-account.png)</Frame>
+    </Step>
+    <Step title="Generate Service Account JSON Key">
+        <Frame>![generate service account json key](/images/create-service-account-key.png)</Frame>
+    </Step>
+    <Step title="Configure Source">
+        Supply your `Project ID`, `Topic Name`, `Subscription` and upload your service account json key.
+    </Step>
+    <Step title="Ingest Events">
+        Continue to the next section to see how to format the event payload.
+    </Step>
+</Steps>
 
 ## Ingestion Options
 There are two ways to ingest events into Convoy from Google PubSub:

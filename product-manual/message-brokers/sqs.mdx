@@ -6,11 +6,31 @@ Convoy supports ingesting events from SQS queues. This is currently only support
 
 ## Connecting to your SQS queue
 To ingest events using Amazon SQS, follow the steps outlined below:
+<Steps>
+    <Step title="Create an IAM User for authenticating with the SQS Queue and attach the AmazonSQSFullAccess policy to the user">
+        <Frame>![create IAM user](/images/create-sqs-user.png)</Frame>
+    </Step>
+    <Step>
+        <Frame>![attach AmazonSQSFullAccess policy](/images/attach-sqs-policy.png)</Frame>
+    </Step>
+    <Step title="Under the security credentials tab for the IAM user, generate a new Access Key">
+        > **Take note of the Access Key and Secret Key generated**
 
--  **Create an IAM User for authenticating with the SQS Queue and attach the AmazonSQSFullAccess policy to the user** <Frame>![create IAM user](/images/create-sqs-user.png)</Frame> <Frame>![attach AmazonSQSFullAccess policy](/images/attach-sqs-policy.png)</Frame>
--  **Under the security credentials tab for the IAM user, generate a new Access Key. Take note of the Access Key and Secret Key generated** <Frame>![generate a new access key](/images/generate-access-key.png)</Frame> <Frame>![create CLI access key](/images/cli-access-key.png)</Frame>
--  **Create a SQS Queue and specify the ARN of the IAM user under the access policy** <Frame>![create sqs queue](/images/create-sqs-queue.png)</Frame> <Frame>![add the IAM user under access policy](/images/access-policy-iam-user.png)</Frame>
--  Supply your `Access Key`, `Secret Key`, `Queue Name` and `Default Region`.
+        <Frame>![generate a new access key](/images/generate-access-key.png)</Frame>
+    </Step>
+    <Step>
+        <Frame>![create CLI access key](/images/cli-access-key.png)</Frame>
+    </Step>
+    <Step title="Create a SQS Queue and specify the ARN of the IAM user under the access policy">
+        <Frame>![create sqs queue](/images/create-sqs-queue.png)</Frame>
+    </Step>
+    <Step>
+        <Frame>![add the IAM user under access policy](/images/access-policy-iam-user.png)</Frame>
+    </Step>
+    <Step title="Going back to Convoy">
+        Supply your `Access Key`, `Secret Key`, `Queue Name` and `Default Region`.
+    </Step>
+</Steps>
 
 ## Ingestion Options
 There are two ways to ingest events into Convoy from your SQS queue:
