@@ -13,8 +13,8 @@ To ingest events using Amazon SQS, follow the steps outlined below:
 -  Supply your `Access Key`, `Secret Key`, `Queue Name` and `Default Region`.
 
 ## Ingestion Options
-There are two ways to ingest events into Convoy from your Kafka topic:
-- Format the payload after the structure in the below and write it to your topic.
+There are two ways to ingest events into Convoy from your SQS queue:
+- Format the payload using the structure below as a guide and write it to your queue.
   ```json5 reference payload
    {
       "event_type": "string, required",
@@ -31,7 +31,7 @@ There are two ways to ingest events into Convoy from your Kafka topic:
   > If `x-convoy-message-type` set to **broadcast**, the event will be sent to all endpoints in the project, ignoring both the `endpoint_id` and `owner_id` values.
 
 For a full list of reference payloads, see [our guide on ingesting events](../../product-manual/events-and-event-deliveries#ingesting-events)
-- Send your arbitrarily formatted event payloads to your topic and use Convoy’s transform functions to mutate them at the point of ingestion.
+- Send your arbitrarily formatted event payloads to your queue and use Convoy’s transform functions to mutate them at the point of ingestion.
   ```js transform function
   function transform(payload) {
       return {

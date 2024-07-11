@@ -18,7 +18,7 @@ It is designed specifically for outgoing projects to send events to a specific e
 a number of endpoints or all endpoints.
 This source is only and automatically available for all outgoing projects.
 
-```js payload structure
+```json payload structure
 {
     "owner_id": "string, optional",
     "event_type": "string, required",
@@ -36,7 +36,7 @@ This source is only and automatically available for all outgoing projects.
 - `idempotency_key`: An identifier that is used to deduplicate events.
 - `endpoint_id`: The id of the endpoint to send the event to.
 
-```js sample payload
+```json sample payload
 {
     "endpoint_id": "01HVNHCYTFW7MDKMQ43YFS20HZ",
     "owner_id": "01HVNHE3Z5EKKR9QZJVCH9XRWW",
@@ -48,6 +48,9 @@ This source is only and automatically available for all outgoing projects.
     "idempotency_key": "test123"
 }
 ```
+
+For a full list of reference payloads,
+see [our guide on ingesting events](../product-manual/events-and-event-deliveries#ingesting-events)
 
 ## HTTP Ingestion
 
@@ -71,36 +74,12 @@ For HMAC verification mechanism, Convoy provides support for [simple and advance
 -  **Custom Verification:** For some providers, like [Github](https://github.com/) and [Twitter](https://twitter.com/) the core verification mechanisms aren't sufficient. Though they are wrap around the core mechanisms, these modules have to be built specifically for eah provider.
     
 
-Currently, we have support for [GitHub](https://github.com/), and have planned support for [Twitter](https://twitter.com/) and [Shopify](https://shopify.com/). You can request new sources by sending an email to `[[email protected]](https://getconvoy.io/cdn-cgi/l/email-protection)`.
+Currently, we have support for [GitHub](https://github.com/),
+and have planned support for [Twitter](https://twitter.com/) and [Shopify](https://shopify.com/).
 
 ## Message Brokers
 
-Message Brokers provide extra reliability gains to ingest events from backend services to dispatch to client endpoints. With this, disparate services write events to a queue or topic, then convoy reads off the queue or topic and send the events to client endpoint. It is designed for and only available to outgoing projects.
+Message Brokers provide extra reliability gains to ingest events from backend services to dispatch to client endpoints.
+With this, disparate services write events to a queue or topic, then convoy reads off the queue or topic and send the events to client endpoint.
+It is designed for and only available to outgoing projects.
 
-### Google PubSub
-
-To ingest events using Google PubSub, follow the steps outlined below:
-
--  **Create a PubSub Topic** <Frame>![create google pubsub topic](/images/google-pubsub.png)</Frame>
-    
--  **Create a Subscription** <Frame>![create a subscription](/images/create-google-subscription.png)</Frame>
-    
--  **Create a Service Account with PubSub Admin Role** <Frame>![create service account](/images/create-service-account.png)</Frame>
-    
--  **Generate Service Account JSON Key** <Frame>![generate service account json key](/images/create-service-account-key.png)</Frame>
-    
--  **Configure Source** Supply your `Project ID`, `Topic Name`, `Subscription` and upload your service account json key.
-    
--  **Send Events** We write `JSON` events into the queue with the following format:
-    
-    
-```json Sample Payload
-{
-   "endpoint_id": "01GTBP6SX313EZN6X3QE29CW6Z",
-   "event_type": "compliance.completed",
-   "custom_headers": {
-      "X-Event-Key": "Event XYZ"
-   },
-   "data": {}
-}
-```
