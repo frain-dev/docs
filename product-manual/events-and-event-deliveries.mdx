@@ -6,11 +6,15 @@ title: Events and Event Deliveries
 'twitter:url': https://docs.getconvoy.io/product-manual/events-and-event-deliveries
 ---
 ## Ingesting Events
-Convoy supports four different message formats to ingest webhook events into Convoy. This section will help you understand each one of them so that you can select an appropriate format for your use case. All these formats can both be ingested from the API or through any message broker.
+Convoy supports four different message formats to ingest webhook events into Convoy.
+This section will help you understand each one of them so that you can select an appropriate format for your use case.
+All these formats can both be ingested from the API or through any message broker.
 
 ### Directed
 
-This is the most common structure for ingesting events. With this, you supply an `endpoint_id` and the `data` to push to the endpoint. This integration requires you to create the customer’s endpoint ahead of time and save the `endpoint_id` so you can use it when dispatching to Convoy. Use this [endpoint](/api-reference/events/create-an-event) to ingest this structure via the API. See the full payload below.
+This is the most common structure for ingesting events. With this, you supply an `endpoint_id` and the `data` to push to the endpoint.
+This integration requires you to create the customer’s endpoint ahead of time and save the `endpoint_id` so you can use it when dispatching to Convoy.
+Use this [endpoint](/api-reference/events/create-an-event) to ingest this structure via the API. See the full payload below.
 
 ```json Directed event example
 {
@@ -22,9 +26,14 @@ This is the most common structure for ingesting events. With this, you supply an
 }
 ```
 
-### Fanout
+### Fan-out
 
-This structure is used to fan out an event to multiple endpoints for a given tenant. It is common and best practise to enable each customer have more than one endpoint and subscribe to specific events on each endpoint. You can use this structure to offload the task of determining which of the customers endpoint to receive the event. All you need to supply in this structure is the `owner_id`, which represents a unique customer in your business. Use this [endpoint](/api-reference/events/fan-out-an-event) to ingest this structure via the API.
+This structure is used to fan out an event to multiple endpoints for a given tenant.
+It is common and best practice to enable each customer
+to have more than one endpoint and subscribe to specific events on each endpoint.
+You can use this structure to offload the task of determining which of the customers' endpoint to receive the event.
+All you need to supply in this structure is the `owner_id`, which represents a unique customer in your business.
+Use this [endpoint](/api-reference/events/fan-out-an-event) to ingest this structure via the API.
 
 ```json Fanout event example
 {
@@ -38,7 +47,14 @@ This structure is used to fan out an event to multiple endpoints for a given ten
 
 ### Broadcast
 
-This one is used to broadcast one event to multiple tenants in your system. A use case for this are web3/blockchain events, where you want to broadcast a social event like `cast.created` to multiple customers. With this structure, you will specify neither `endpoint_id` nor `owner_id` and Convoy will try to dispatch the event to all endpoints except the endpoint specifically exclude itself through it’s subscription. Use this [endpoint](/api-reference/events/create-a-broadcast-event) to ingest this structure via the API.
+This one is used to broadcast one event to multiple tenants in your system.
+A use case for this is web3/blockchain events,
+where you want to broadcast a social event like `cast.created` to multiple customers.
+With this structure,
+you will specify
+neither `endpoint_id` nor `owner_id` and Convoy will try
+to dispatch the event to all endpoints except the endpoint specifically exclude itself through its subscription.
+Use this [endpoint](/api-reference/events/create-a-broadcast-event) to ingest this structure via the API.
 
 ```json Broadcast event example
 {
@@ -51,7 +67,8 @@ This one is used to broadcast one event to multiple tenants in your system. A us
 
 ### Dynamic
 
-This one is used to ingest and dispatch webhooks without creating endpoints ahead of time. In this mode, you’re using Convoy as a proxy to deliver webhooks. Use this [endpoint](/api-reference/events/dynamic-events) to ingest this structure via the API.
+This one is used to ingest and dispatch webhooks without creating endpoints ahead of time.
+In this mode, you’re using Convoy as a proxy to deliver webhooks. Use this [endpoint](/api-reference/events/dynamic-events) to ingest this structure via the API.
 
 ```json Dynamic event example
 {
@@ -111,7 +128,10 @@ The events log page can be accessed from the sidebar.
 
 ## Event delivery
 
-An event delivery is the combination of an endpoint and an event. For both incoming and outgoing webhooks project, an event can generate multiple event deliveries depending on the subscriptions. An event delivery can have any of the states below:
+An event delivery is the combination of an endpoint and an event.
+For both incoming and outgoing webhooks project,
+an event can generate multiple event deliveries depending on the subscriptions.
+An event delivery can have any of the states below:
 
 -  `Scheduled`: In this state, the event delivery has been enqueued to the message broker, but a worker node is yet to pick it up for delivery.
 -  `Processing`: In this state, the event delivery has been retrieved from the message broker by a worker node, and the event is on its way out.
