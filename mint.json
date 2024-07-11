@@ -89,6 +89,12 @@
             "product-manual/forward-proxies/nginx",
             "product-manual/forward-proxies/smokescreen"
           ]
+        },
+        {
+          "group": "Message Brokers",
+          "pages": [
+            "product-manual/message-brokers/kafka"
+          ]
         }
       ]
     },
