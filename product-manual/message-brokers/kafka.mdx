@@ -28,7 +28,7 @@ There are two ways to ingest events into Convoy from your Kafka topic:
         "idempotency_key": "string, optional",
         "owner_id": "string, optional", // if included, the event is sent to all endpoints with the owner-id
         "endpoint_id": "string, optional" // if included, the event is sent to a single endpoint
-    }
+     }
     ```
     > If `x-convoy-message-type` set to **broadcast**, the event will be sent to all endpoints in the project, ignoring both the `endpoint_id` and `owner_id` values.
 

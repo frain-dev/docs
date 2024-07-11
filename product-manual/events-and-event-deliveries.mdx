@@ -12,7 +12,7 @@ Convoy supports four different message formats to ingest webhook events into Con
 
 This is the most common structure for ingesting events. With this, you supply an `endpoint_id` and the `data` to push to the endpoint. This integration requires you to create the customer’s endpoint ahead of time and save the `endpoint_id` so you can use it when dispatching to Convoy. Use this [endpoint](/api-reference/events/create-an-event) to ingest this structure via the API. See the full payload below.
 
-```json Format
+```json Directed event example
 {
   "custom_headers": {},
   "data": {},
@@ -26,7 +26,7 @@ This is the most common structure for ingesting events. With this, you supply an
 
 This structure is used to fan out an event to multiple endpoints for a given tenant. It is common and best practise to enable each customer have more than one endpoint and subscribe to specific events on each endpoint. You can use this structure to offload the task of determining which of the customers endpoint to receive the event. All you need to supply in this structure is the `owner_id`, which represents a unique customer in your business. Use this [endpoint](/api-reference/events/fan-out-an-event) to ingest this structure via the API.
 
-```json Format 
+```json Fanout event example
 {
   "custom_headers": {},
   "data": {},
@@ -40,7 +40,7 @@ This structure is used to fan out an event to multiple endpoints for a given ten
 
 This one is used to broadcast one event to multiple tenants in your system. A use case for this are web3/blockchain events, where you want to broadcast a social event like `cast.created` to multiple customers. With this structure, you will specify neither `endpoint_id` nor `owner_id` and Convoy will try to dispatch the event to all endpoints except the endpoint specifically exclude itself through it’s subscription. Use this [endpoint](/api-reference/events/create-a-broadcast-event) to ingest this structure via the API.
 
-```json Format
+```json Broadcast event example
 {
   "custom_headers": {},
   "data": {},
@@ -53,7 +53,7 @@ This one is used to broadcast one event to multiple tenants in your system. A us
 
 This one is used to ingest and dispatch webhooks without creating endpoints ahead of time. In this mode, you’re using Convoy as a proxy to deliver webhooks. Use this [endpoint](/api-reference/events/dynamic-events) to ingest this structure via the API.
 
-```json Format 
+```json Dynamic event example
 {
   "url": "{endpoint_url}",
   "secret": "{endpoint_secret}",
@@ -63,10 +63,50 @@ This one is used to ingest and dispatch webhooks without creating endpoints ahea
   "idempotency_key": ""
 }
 ```
+## Custom Headers and Idempotency
+
+### Custom Headers
+```json Custom header example
+{
+    "event_type": "log.sampled",
+    "data": {
+        "foo": "bar"
+    },
+    "custom_headers": {
+        "sample-header": "sample-value"
+    }
+}
+```
+Any key value pairs set in this object will be added as headers to the HTTP request of the webhook.
+
+> If `x-convoy-message-type` set to **broadcast**, the event will be sent to all endpoints in the project, ignoring both the `endpoint_id` and `owner_id` values.
+
+### Idempotency
+```json Idempotency example
+{
+    "event_type": "log.sampled",
+    "data": {
+        "foo": "bar"
+    },
+    "custom_headers": {
+        "sample-header": "sample-value"
+    },
+    "idempotency_key": "my-unique-key"
+}
+```
+
+Idempotency keys are useful for deduplicating REST API calls.
+In Convoy, we use them to deduplicate events being sent more than once.
+An idempotency key can only be reused when the event bearing that key has been hard deleted after the retention policy window.
+> When an event with an existing idempotency key is ingested, it is created as a **duplicate**
+of the former and can be seen on the dashboard, and no event delivery is created for it.
 
 ## Events Log
 
-The Events log dashboard represent all webhook events pushed to Convoy. They do not have a status and do not contain delivery attempts. It is only a log of events published to Convoy. The events log page can be accessed from the sidebar.
+The Events log dashboard represents all webhook events pushed to Convoy.
+They do not have a status and do not contain delivery attempts.
+It is only a log of events published to Convoy.
+The events log page can be accessed from the sidebar.
 <Frame>![convoy event log](/images/event-log.png)</Frame>
 
 ## Event delivery
@@ -77,7 +117,7 @@ An event delivery is the combination of an endpoint and an event. For both incom
 -  `Processing`: In this state, the event delivery has been retrieved from the message broker by a worker node, and the event is on its way out.
 -  `Success`: In this state, the event delivery delivered successfully. Here, the `Retry` button becomes `Force Retry`. This is used to retry a successful event in case of a false positive.
 -  `Retry`: In this state, the event delivery previously failed and the automatic retries have kicked in. Here, Convoy will continue to retry till the max attempts is reached.
--  `Failed`: In this state, the event delivery has reached the maximum amount of automatic retries and failed to deliver the event or the endpoint failed to acknowledge delivery. Here, the `Retry` button becomes to active to trigger manual retries.
+-  `Failed`: In this state, the event delivery has reached the maximum number of automatic retries and failed to deliver the event or the endpoint failed to acknowledge delivery. Here, the `Retry` button becomes to active to trigger manual retries.
 -  `Discarded`: In this state, the endpoint has been set to `inactive`, so Convoy did not try to process events to the endpoint at all. See [here](https://getconvoy.io/docs/manual/endpoints#endpoint-state) on re-activating the endpoint.
 
 Event deliveries can be viewed on the **Events Deliveries** page below:
@@ -86,9 +126,12 @@ Event deliveries can be viewed on the **Events Deliveries** page below:
 
 ## Debugging Event Deliveries
 
-For the most part, building a webhooks dashboard requires building the tools for finding and solving problems easily, this requires the ability to quickly find the affected payload, application, endpoint and most importantly affected customer.
+For the most part,
+building a dashboard for webhooks requires building the tools for finding and solving problems easily,
+this requires the ability to quickly find the affected payload,
+application, endpoint and most importantly affected customer.
 
-There are 2 ways to debug events in Convoy:
+There are two ways to debug events in Convoy:
 
 ### Event filtering
 
@@ -96,8 +139,7 @@ You can filter events and event deliveries by date, time, status and endpoints r
 
 ### Event search
 
-Every hour Convoy tokenizes the entire webhook payload this enables you to search (using full-text search) the entire payload for any value in any field which enables you debug issues faster. Search tokens are retained till they are deleted at the end of the search retention period. <Frame>![convoy event search](/images/convoy-events-search.gif)</Frame>
-
-### Convoy CLI
-
-You can now debug your webhooks using the [stream command](https://getconvoy.io/docs/cli#stream). We have made available, a blog post on [how to debug your webhooks with the Convoy CLI](https://getconvoy.io/blog/debug-your-webhooks-with-convoy-cli/).
+Every hour Convoy tokenizes the entire webhook payload this enables you to search (using full-text search)
+the entire payload for any value in any field that enables you to debug issues faster.
+Search tokens are retained till they are deleted at the end of the search retention period.
+<Frame>![convoy event search](/images/convoy-events-search.gif)</Frame>
