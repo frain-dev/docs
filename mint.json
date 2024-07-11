@@ -1,53 +1,53 @@
 {
-  "name": "Convoy",
-  "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+  "name":"Convoy",
+  "logo":{
+    "light":"/logo/light.svg",
+    "dark":"/logo/dark.svg"
   },
-  "favicon": "/favicon.png",
-  "colors": {
-    "primary": "#477BD3",
-    "light": "#739FEA",
-    "dark": "#477BD3"
+  "favicon":"/favicon.png",
+  "colors":{
+    "primary":"#477BD3",
+    "light":"#739FEA",
+    "dark":"#477BD3"
   },
-  "topbarCtaButton": {
-    "name": "Start Your Project",
-    "url": "https://cloud.getconvoy.io/signup"
+  "topbarCtaButton":{
+    "name":"Start Your Project",
+    "url":"https://cloud.getconvoy.io/signup"
   },
-  "anchors": [
+  "anchors":[
     {
-      "name": "Community",
-      "icon": "slack",
-      "url": "https://convoy-community.slack.com/join/shared_invite/zt-xiuuoj0m-yPp~ylfYMCV9s038QL0IUQ#/shared-invite/email"
+      "name":"Community",
+      "icon":"slack",
+      "url":"https://convoy-community.slack.com/join/shared_invite/zt-xiuuoj0m-yPp~ylfYMCV9s038QL0IUQ#/shared-invite/email"
     },
     {
-      "name": "GitHub",
-      "icon": "github",
-      "url": "https://github.com/frain-dev/convoy"
+      "name":"GitHub",
+      "icon":"github",
+      "url":"https://github.com/frain-dev/convoy"
     },
     {
-      "name": "Tutorials",
-      "icon": "list",
-      "url": "https://getconvoy.io/blog?tag=Tutorial"
+      "name":"Tutorials",
+      "icon":"list",
+      "url":"https://getconvoy.io/blog?tag=Tutorial"
     }
   ],
-  "tabs": [
+  "tabs":[
     {
-      "name": "API Reference",
-      "url": "api-reference"
+      "name":"API Reference",
+      "url":"api-reference"
     }
   ],
-  "navigation": [
+  "navigation":[
     {
-      "group": "Home",
-      "pages": [
+      "group":"Home",
+      "pages":[
         "home/quickstart",
         "home/introduction"
       ]
     },
     {
-      "group": "Guides",
-      "pages": [
+      "group":"Guides",
+      "pages":[
         "guides/sending-webhook-example",
         "guides/receiving-webhook-example",
         "guides/use-convoy-as-a-proxy",
@@ -55,13 +55,13 @@
       ]
     },
     {
-      "group": "Deployment",
-      "pages": [
+      "group":"Deployment",
+      "pages":[
         "deployment/architecture",
         "deployment/configuration",
         {
-          "group": "Install Convoy",
-          "pages": [
+          "group":"Install Convoy",
+          "pages":[
             "deployment/install-convoy/docker",
             "deployment/install-convoy/kubernetes",
             "deployment/install-convoy/troubleshooting"
@@ -70,8 +70,8 @@
       ]
     },
     {
-      "group": "Product Manual",
-      "pages": [
+      "group":"Product Manual",
+      "pages":[
         "product-manual/organizations-and-projects",
         "product-manual/endpoints",
         "product-manual/signatures",
@@ -84,8 +84,8 @@
         "product-manual/static-ips",
         "product-manual/webhooks-documentation",
         {
-          "group": "Forward Proxies",
-          "pages": [
+          "group":"Forward Proxies",
+          "pages":[
             "product-manual/forward-proxies/nginx",
             "product-manual/forward-proxies/smokescreen"
           ]
@@ -95,61 +95,62 @@
           "pages": [
             "product-manual/message-brokers/kafka"
           ]
-        }
+        },
+        "product-manual/metrics"
       ]
     },
     {
-      "group": "Command Line",
-      "pages": [
+      "group":"Command Line",
+      "pages":[
         "cli-file/convoy",
         "cli-file/convoy-cli"
       ]
     },
     {
-      "group": "SDK",
-      "pages": [
+      "group":"SDK",
+      "pages":[
         "sdk/sdk"
       ]
     },
     {
-      "group": "Release Notes",
-      "pages": [
+      "group":"Release Notes",
+      "pages":[
         "release-notes/releases"
       ]
     },
     {
-      "group": "Cloud",
-      "pages": [
+      "group":"Cloud",
+      "pages":[
         "cloud/cloud-upgrade-policy"
       ]
     },
     {
-      "group": "Resources",
-      "pages": [
+      "group":"Resources",
+      "pages":[
         "resources/glossary",
         "resources/telemetry",
         "resources/release-process"
       ]
     },
     {
-      "group": "FAQ",
-      "pages": [
+      "group":"FAQ",
+      "pages":[
         "faq/faq"
       ]
     },
     {
-      "group": "Introduction",
-      "pages": [
+      "group":"Introduction",
+      "pages":[
         "api-reference/welcome",
         "api-reference/authentication",
         "api-reference/errors",
         "api-reference/pagination",
-	"api-reference/versioning"
+        "api-reference/versioning"
       ]
     },
     {
-      "group": "Endpoints",
-      "pages": [
+      "group":"Endpoints",
+      "pages":[
         "api-reference/endpoints/list-all-endpoints",
         "api-reference/endpoints/create-an-endpoint",
         "api-reference/endpoints/retrieve-endpoint",
@@ -160,8 +161,8 @@
       ]
     },
     {
-      "group": "Event Deliveries",
-      "pages": [
+      "group":"Event Deliveries",
+      "pages":[
         "api-reference/event-deliveries/list-all-event-deliveries",
         "api-reference/event-deliveries/batch-retry-event-delivery",
         "api-reference/event-deliveries/force-retry-event-delivery",
@@ -170,15 +171,15 @@
       ]
     },
     {
-      "group": "Delivery Attempts",
-      "pages": [
+      "group":"Delivery Attempts",
+      "pages":[
         "api-reference/delivery-attempts/list-delivery-attempts",
         "api-reference/delivery-attempts/retrieve-a-delivery-attempt"
       ]
     },
     {
-      "group": "Events",
-      "pages": [
+      "group":"Events",
+      "pages":[
         "api-reference/events/list-all-events",
         "api-reference/events/create-an-event",
         "api-reference/events/create-a-broadcast-event",
@@ -190,16 +191,16 @@
       ]
     },
     {
-      "group": "Meta Events",
-      "pages": [
+      "group":"Meta Events",
+      "pages":[
         "api-reference/meta-events/list-all-meta-events",
         "api-reference/meta-events/retrieve-a-meta-event",
         "api-reference/meta-events/retry-meta-event"
       ]
     },
     {
-      "group": "Portal Links",
-      "pages": [
+      "group":"Portal Links",
+      "pages":[
         "api-reference/portal-links/list-all-portal-links",
         "api-reference/portal-links/create-a-portal-link",
         "api-reference/portal-links/retrieve-a-portal-link",
@@ -208,8 +209,8 @@
       ]
     },
     {
-      "group": "Sources",
-      "pages": [
+      "group":"Sources",
+      "pages":[
         "api-reference/sources/list-all-sources",
         "api-reference/sources/create-a-source",
         "api-reference/sources/retrieve-a-source",
@@ -218,8 +219,8 @@
       ]
     },
     {
-      "group": "Subscriptions",
-      "pages": [
+      "group":"Subscriptions",
+      "pages":[
         "api-reference/subscriptions/list-all-subscriptions",
         "api-reference/subscriptions/create-a-subscription",
         "api-reference/subscriptions/validate-subscription-filter",
@@ -230,12 +231,12 @@
       ]
     }
   ],
-  "backgroundImage": "/background.png",
-  "feedback": {
-    "thumbsRating": true
+  "backgroundImage":"/background.png",
+  "feedback":{
+    "thumbsRating":true
   },
-  "footerSocials": {
-    "twitter": "https://twitter.com/getconvoy?lang=en",
-    "linkedin": "https://www.linkedin.com/company/convoy-webhooks/"
+  "footerSocials":{
+    "twitter":"https://twitter.com/getconvoy?lang=en",
+    "linkedin":"https://www.linkedin.com/company/convoy-webhooks/"
   }
 }
