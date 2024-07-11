@@ -1,0 +1,29 @@
+---
+title: Metrics
+'og:title': Metrics
+'og:description': Convoy exports metrics about the state of events received and sent via Prometheus.
+'twitter:description': Convoy exports metrics about the state of events received and sent via Prometheus.
+'twitter:url': https://docs.getconvoy.io/product-manual/metrics
+---
+
+Convoy exports metrics about the state of events received and sent via Prometheus
+
+## Queue Metrics
+
+| Name                                          | Type  | Description                                                                                        |
+|:----------------------------------------------|:------|:---------------------------------------------------------------------------------------------------|
+| `convoy_event_queue_total`                    | Gauge | Total number of tasks in the event queue                                                           |
+| `convoy_event_queue_scheduled_total`          | Gauge | Total number of tasks scheduled in the event queue                                                 |
+| `convoy_event_queue_backlog_seconds`          | Gauge | Number of seconds the oldest pending task is waiting in pending state to be processed.             |
+| `convoy_event_delivery_queue_total`           | Gauge | Total number of tasks in the delivery queue per endpoint                                           |
+| `convoy_event_delivery_attempts_total`        | Gauge | Total number of attempts per endpoint                                                              |
+| `convoy_event_delivery_queue_backlog_seconds` | Gauge | Number of seconds the oldest pending task is waiting in pending state to be processed per endpoint |
+
+
+## Data Ingestion Metrics
+| Name                        | Type      | Description                                               |
+|:----------------------------|:----------|:----------------------------------------------------------|
+| `convoy_ingest_total`       | Counter   | Total number of events ingested                           |
+| `convoy_ingest_success`     | Counter   | Total number of events successfully ingested and consumed |
+| `convoy_ingest_error`       | Counter   | Total number of errors during event ingestion             |
+| `convoy_end_to_end_latency` | Histogram | Total time (in seconds) an event spends in Convoy.        |
