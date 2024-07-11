@@ -93,7 +93,8 @@
         {
           "group": "Message Brokers",
           "pages": [
-            "product-manual/message-brokers/kafka"
+            "product-manual/message-brokers/kafka",
+            "product-manual/message-brokers/sqs"
           ]
         },
         "product-manual/metrics"

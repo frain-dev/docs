@@ -104,39 +104,3 @@ To ingest events using Google PubSub, follow the steps outlined below:
    "data": {}
 }
 ```
-
-    
-The payload is exactly the same as the one used with our REST API.
-    
-
-### Amazon SQS
-
-To ingest events using Amazon SQS, follow the steps outlined below:
-
--  **Create an IAM User for authenticating with the SQS Queue and attach the AmazonSQSFullAccess policy to the user** <Frame>![create IAM user](/images/create-sqs-user.png)</Frame> <Frame>![attach AmazonSQSFullAccess policy](/images/attach-sqs-policy.png)</Frame>
-    
--  **Under the security credentials tab for the IAM user, generate a new Access Key. Take note of the Access Key and Secret Key generated** <Frame>![generate a new access key](/images/generate-access-key.png)</Frame> <Frame>![create CLI access key](/images/cli-access-key.png)</Frame>
-    
--  **Create a SQS Queue and specify the ARN of the IAM user under the access policy** <Frame>![create sqs queue](/images/create-sqs-queue.png)</Frame> <Frame>![add the IAM user under access policy](/images/access-policy-iam-user.png)</Frame>
-    
--  **Configure Source** Supply your `Access Key`, `Secret Key`, `Queue Name` and `Default Region`.
-    
--  **Send Events** We write `JSON` events into the queue with the following format:
-    
-    
-    
-```json Sample Payload
- {
-   "endpoint_id": "01GTBP6SX313EZN6X3QE29CW6Z",
-   "event_type": "compliance.completed",
-   "custom_headers": {
-      "X-Event-Key": "Event XYZ"
-   },
-   "data": {}
- }
-```
-
-### Kafka
-
-The Kafka integration reads a messages off a topic using a consumer group for high availability and fault tolerance.
-> The number of partitions for the topic should match the number of workers.
