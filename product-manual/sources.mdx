@@ -81,5 +81,9 @@ and have planned support for [Twitter](https://twitter.com/) and [Shopify](https
 
 Message Brokers provide extra reliability gains to ingest events from backend services to dispatch to client endpoints.
 With this, disparate services write events to a queue or topic, then convoy reads off the queue or topic and send the events to client endpoint.
-It is designed for and only available to outgoing projects.
+It is designed for and only available to outgoing projects. Today Convoy supports:
+1. [Apache Kafka](../product-manual/message-brokers/kafka)
+2. [Amazon SQS](../product-manual/message-brokers/sqs)
+3. [Google PubSub](../product-manual/message-brokers/pub-sub)
+4. [RabbitMQ (currently in beta)](../product-manual/message-brokers/rabbitmq)
 

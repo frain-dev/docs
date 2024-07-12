@@ -95,7 +95,8 @@
           "pages": [
             "product-manual/message-brokers/kafka",
             "product-manual/message-brokers/sqs",
-            "product-manual/message-brokers/pub-sub"
+            "product-manual/message-brokers/pub-sub",
+            "product-manual/message-brokers/rabbitmq"
           ]
         },
         "product-manual/metrics"
