@@ -99,6 +99,7 @@
             "product-manual/message-brokers/rabbitmq"
           ]
         },
+        "product-manual/rate-limits",
         "product-manual/metrics"
       ]
     },
