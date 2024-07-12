@@ -8,6 +8,22 @@ title: Metrics
 
 Convoy exports metrics about the state of events received and sent via Prometheus
 
+## Enabling Metrics
+Metrics are currently in beta, and aren't enabled by default. To enable them, you need to
+- Add the experimental feature flag
+- Enable metrics using the env var `CONVOY_METRICS_ENABLED`
+- Set the metrics backend env var `CONVOY_METRICS_BACKEND`
+
+```shell enabling convoy metrics using flags
+convoy worker --metrics-backend=prometheus --feature-flag=experimental
+```
+
+```shell enabling convoy metrics using env vars
+export CONVOY_METRICS_ENABLED=true
+export CONVOY_METRICS_BACKEND=prometheus
+convoy worker --feature-flag=experimental
+```
+
 ## Queue Metrics
 
 | Name                                          | Type  | Description                                                                                        |
