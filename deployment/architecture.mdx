@@ -22,7 +22,7 @@ The API Server is a stateless service, and can be scaled horizontally. We sugges
 
 ### Workers
 
-The workers are responsible for processing all asynchronous tasks from Redis. This can range from important functions like processing webhook events to ancillary tasks like sending emails, purging stale events etc.
+The workers are responsible for processing all asynchronous tasks from Redis. This can range from important functions like processing webhook events to ancillary tasks like sending emails, purging stale events ([retention policies](https://docs.getconvoy.io/deployment/configuration)) etc.
 
 These workers are designed to be stateless and can be scaled horizontally to increase throughput of the entire system. See the CLI details [here](https://getconvoy.io/docs/cli#worker)
 
