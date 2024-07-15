@@ -225,6 +225,17 @@ Here's the full configuration reference
 	}
 
   // [optional]
+  // Specify the retention policy configurations for your convoy instance
+  // See the storage_policy config to configure where purged events will be stored.
+  "retention_policy": {
+      // Specify the period of time to go back before purging events, events within the specifed time period will not be purged.
+      "policy": "720h",
+
+      // Specify whether the retention policy job should run.
+      "enabled": false,
+  }
+
+  // [optional]
   // This is used to configure the logger for any Convoy component.
   "logger": {
 
