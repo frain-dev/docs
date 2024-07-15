@@ -6,13 +6,18 @@ title: Filters
 'twitter:url': https://docs.getconvoy.io/product-manual/filters
 ---
 
-Filtering is used to decide what events an endpoint will receive based on the webhook event payload. The subscription filter is an enriched JSON syntax for both simple and complex filters (such as special logical and arithmetic operators `$or`, `$gte`, `$eq`).
+Filtering is used to decide what events an endpoint will receive based on the webhook event payload.
+The filter is an enriched JSON syntax for both simple and complex filters
+(such as special logical and numeric operators `$or`, `$gte`, `$eq`).
 
-Subscription filters can be configured from the subscriptions' page:
+## Use cases
+Filters can be configured on subscriptions in both [incoming projects](../product-manual/organizations-and-projects#incoming-project)
+and [outgoing project](../product-manual/organizations-and-projects#outgoing-project).
 
 <Frame>![subscription filter](/images/subscription-filter.png)</Frame>
 
-The filters are configured in the **Filter Schema** editor and the event payload in the **Event Payload** editor to validate the schema.
+The filters are configured in the **Filter Schema** editor and
+the event payload in the **Event Payload** editor to validate the schema.
 
 <Frame>![Subscription filter](/images/subscription-filter-empty-modal.png)</Frame>
 
@@ -69,14 +74,15 @@ This filter is used to validate nested webhook payloads.
 
 ## Complex filters
 
-Complex filters contain more logic such as logical operators and special operators. Complex filters are employed to filter events using one or more conditions, e.g., `$or` logical operator filter.
+Complex filters contain more logic such as logical operators and special operators.
+Complex filters are employed to filter events using one or more conditions, e.g., `$or` logical operator filter.
 
-#### $neq filter
+#### Equality filters
 
 This filter matches event which directly does not match the event type in the webhook payload.
 
 
-```json  $neq filter
+```json $neq filter
 {
 	"event": {
 		"$neq": "created"
@@ -88,12 +94,11 @@ This filter matches event which directly does not match the event type in the we
 
 <Frame>![$neq subscription filter](/images/subscription-ne-filter.png)</Frame>
 
-#### \$or and \$and filters
+#### Compound filters
 
-This filter is used to match multiple conditions defined in the schema.
+These filters are used to match multiple conditions defined in the schema.
 
-
-```json  $or filter
+```json $or filter
 {
 	"$or": [
 		{
@@ -135,11 +140,13 @@ This filter is used to match multiple conditions defined in the schema.
 
 #### Array Contains filters
 
-This filter is used to match keys where the value can be a range of values. It can be used in place of `$or` if you are comparing on the same field. The opposite of this operator `$nin` can be used to match keys where the value is not in a range of values.
+This filter is used to match keys where the value can be a range of values.
+It can be used in place of `$or` if you are comparing on the same field.
+The opposite of this operator `$nin` can be used to match keys where the value is not in a range of values.
 
 
 
-```json  $in filter
+```json $in filter
 {
 	"operation": {
 		"$in": ["created", "deleted"]
@@ -163,13 +170,15 @@ This filter is used to match keys where the value can be a range of values. It c
 
 <Frame>![$in filter](/images/subscription-in-filter.png)</Frame>
 
-#### Arithmetic filters
+#### Numeric filters
 
-These filters match events based on arithmetic operators. For example, the filter below will match all events where the age is greater than 1. The operators supported are `$gt`, `$gte`, `$lt`, `$lte`
+These filters match events based on numeric operators.
+For example, the filter below will match all events where the age is greater than 1. The operators supported are `$gt`,
+`$gte`, `$lt`, `$lte`
 
 
 
-```json Arithmetic filter
+```json Numeric filters
 {
 	"age": {
 		"$gt": 1
@@ -179,10 +188,9 @@ These filters match events based on arithmetic operators. For example, the filte
 ```
 
 
-#### Array positional filters
+#### Array positional filters (currently in beta)
 
 These filters match events with payloads that are array either in the root or nested.
-
 
 
 ```json  Array positional filters
@@ -200,7 +208,6 @@ These filters match events with payloads that are array either in the root or ne
 These filters match events with payloads that match the supplied regex.
 
 
-
 ```json  Regex filters
 {
 	"event_type": {
@@ -210,27 +217,29 @@ These filters match events with payloads that match the supplied regex.
 
 ```
 
-
 <Frame>![Regex filter](/images/subscription-regex-filter.png)</Frame>
 
-**NB:** Convoy only supports filters with arrays nested up to 3 levels i.e. `$.a.$.b.$.c.$.e` will throw an error
+### Caveats
+- Convoy only supports filters with arrays nested up to three levels i.e. `$.a.$.b.$.c.$.e` will throw an error
+- Array positional filters are in beta and have time complexity of `O(n^3)`
 
+
+## Supported Filters
 Here's a full list of the supported filters:
 
-
-|Operator|Supported Type              |Description                                |
-|--------|----------------------------|-------------------------------------------|
-|none    |all                         |Match all                                  |
-|$.      |array                       |Match an array value                       |
-|$gte    |number                      |Greater than or equal to                   |
-|$gt     |number                      |Greater than                               |
-|$lt     |number                      |Less than                                  |
-|$lte    |number                      |Less than or equal to                      |
-|$eq     |number, object, string, bool|Equal                                      |
-|$neq    |number, object, string, bool|Not Equal                                  |
-|$in     |array                       |checks if an array contains a value        |
-|$nin    |array                       |checks if an array does not contain a value|
-|$or     |array of conditions         |matches an array of conditions             |
-|$and    |array of conditions         |matches an array of conditions             |
-|$exist  |array                       |checks if a key exists                     |
-|$regex  |string                      |checks if the regex matches                |
+| Operator | Supported Type               | Description                                 |
+|----------|------------------------------|---------------------------------------------|
+| none     | all                          | Match all                                   |
+| $.       | array                        | Match an array value                        |
+| $gte     | number                       | Greater than or equal to                    |
+| $gt      | number                       | Greater than                                |
+| $lt      | number                       | Less than                                   |
+| $lte     | number                       | Less than or equal to                       |
+| $eq      | number, object, string, bool | Equal                                       |
+| $neq     | number, object, string, bool | Not Equal                                   |
+| $in      | array                        | checks if an array contains a value         |
+| $nin     | array                        | checks if an array does not contain a value |
+| $or      | array of conditions          | matches an array of conditions              |
+| $and     | array of conditions          | matches an array of conditions              |
+| $exist   | array                        | checks if a key exists                      |
+| $regex   | string                       | checks if the regex matches                 |
