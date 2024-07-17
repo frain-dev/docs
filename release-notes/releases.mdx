@@ -1,6 +1,40 @@
 ---
 title: Releases
 ---
+# 24.6.x
+
+### Release Highlights
+
+- Added rate limiting to event entry points, HTTP APIs, and message brokers.
+- Introduced a retry queue for better event processing.
+- Implemented a search bar for easier subscription management.
+- Adopted asynq's exponential backoff for event delivery retries.
+- Integrated PyroScope profiling and Prometheus metrics for enhanced monitoring.
+- Enabled creation and viewing of endpoint subscriptions via portal links.
+- Allowed filtering of subscriptions by name.
+
+### Patches
+
+The changelogs for this minor release version and any maintenance versions are listed below.
+
+- [Convoy v24.6.3](https://github.com/frain-dev/convoy/releases/tag/v24.6.3)
+- [Convoy v24.6.2](https://github.com/frain-dev/convoy/releases/tag/v24.6.2)
+- [Convoy v24.6.1](https://github.com/frain-dev/convoy/releases/tag/v24.6.1)
+
+# 24.5.x
+
+### Release Highlights
+
+- Introduced the automatic creation of a default organization during the initial Convoy setup.
+- Added a user-settings page for situations when no organizations are present.
+- Enhanced event processing by using transactions to avoid race conditions.
+- Improved dashboard functionality by displaying the Endpoint table with its ID.
+
+### Patches
+
+The changelogs for this minor release version and any maintenance versions are listed below.
+
+- [Convoy v24.5.1](https://github.com/frain-dev/convoy/releases/tag/v24.5.1)
 
 ## v24.4.x
 
