@@ -32,6 +32,8 @@ components:
           type: string
         schema:
           type: string
+        vhost:
+          type: string
       type: object
     datastore.ApiKey:
       properties:
@@ -119,22 +121,22 @@ components:
       type: object
     datastore.DeviceStatus:
       enum:
-        - offline
-        - online
-        - disabled
+      - offline
+      - online
+      - disabled
       type: string
       x-enum-varnames:
-        - DeviceStatusOffline
-        - DeviceStatusOnline
-        - DeviceStatusDisabled
+      - DeviceStatusOffline
+      - DeviceStatusOnline
+      - DeviceStatusDisabled
     datastore.EncodingType:
       enum:
-        - base64
-        - hex
+      - base64
+      - hex
       type: string
       x-enum-varnames:
-        - Base64Encoding
-        - HexEncoding
+      - Base64Encoding
+      - HexEncoding
     datastore.Endpoint:
       properties:
         advanced_signatures:
@@ -187,24 +189,26 @@ components:
       type: object
     datastore.EndpointAuthenticationType:
       enum:
-        - api_key
+      - api_key
       type: string
       x-enum-varnames:
-        - APIKeyAuthentication
+      - APIKeyAuthentication
     datastore.EndpointStatus:
       enum:
-        - active
-        - inactive
-        - pending
-        - paused
+      - active
+      - inactive
+      - pending
+      - paused
       type: string
       x-enum-varnames:
-        - ActiveEndpointStatus
-        - InactiveEndpointStatus
-        - PendingEndpointStatus
-        - PausedEndpointStatus
+      - ActiveEndpointStatus
+      - InactiveEndpointStatus
+      - PendingEndpointStatus
+      - PausedEndpointStatus
     datastore.Event:
       properties:
+        acknowledged_at:
+          type: string
         app_id:
           description: Deprecated
           type: string
@@ -252,20 +256,20 @@ components:
       type: object
     datastore.EventDeliveryStatus:
       enum:
-        - Scheduled
-        - Processing
-        - Discarded
-        - Failure
-        - Success
-        - Retry
+      - Scheduled
+      - Processing
+      - Discarded
+      - Failure
+      - Success
+      - Retry
       type: string
       x-enum-varnames:
-        - ScheduledEventStatus
-        - ProcessingEventStatus
-        - DiscardedEventStatus
-        - FailureEventStatus
-        - SuccessEventStatus
-        - RetryEventStatus
+      - ScheduledEventStatus
+      - ProcessingEventStatus
+      - DiscardedEventStatus
+      - FailureEventStatus
+      - SuccessEventStatus
+      - RetryEventStatus
     datastore.FilterConfiguration:
       properties:
         event_types:
@@ -281,6 +285,8 @@ components:
           $ref: '#/components/schemas/datastore.M'
         headers:
           $ref: '#/components/schemas/datastore.M'
+        is_flattened:
+          type: boolean
       type: object
     datastore.GooglePubSubConfig:
       properties:
@@ -355,6 +361,8 @@ components:
           type: array
         interval_seconds:
           type: integer
+        max_retry_seconds:
+          type: integer
         next_send_time:
           type: string
         num_trials:
@@ -371,12 +379,12 @@ components:
       type: object
     datastore.PageDirection:
       enum:
-        - next
-        - prev
+      - next
+      - prev
       type: string
       x-enum-varnames:
-        - Next
-        - Prev
+      - Next
+      - Prev
     datastore.PaginationData:
       properties:
         has_next_page:
@@ -412,16 +420,16 @@ components:
       type: object
     datastore.PubSubType:
       enum:
-        - sqs
-        - google
-        - kafka
-        - amqp
+      - sqs
+      - google
+      - kafka
+      - amqp
       type: string
       x-enum-varnames:
-        - SqsPubSub
-        - GooglePubSub
-        - KafkaPubSub
-        - AmqpPubSub
+      - SqsPubSub
+      - GooglePubSub
+      - KafkaPubSub
+      - AmqpPubSub
     datastore.RateLimitConfiguration:
       properties:
         count:
@@ -466,6 +474,8 @@ components:
       type: object
     datastore.Source:
       properties:
+        body_function:
+          type: string
         created_at:
           type: string
         custom_response:
@@ -476,6 +486,8 @@ components:
           items:
             type: string
           type: array
+        header_function:
+          type: string
         idempotency_keys:
           items:
             type: string
@@ -507,42 +519,42 @@ components:
       type: object
     datastore.SourceProvider:
       enum:
-        - github
-        - twitter
-        - shopify
+      - github
+      - twitter
+      - shopify
       type: string
       x-enum-varnames:
-        - GithubSourceProvider
-        - TwitterSourceProvider
-        - ShopifySourceProvider
+      - GithubSourceProvider
+      - TwitterSourceProvider
+      - ShopifySourceProvider
     datastore.SourceType:
       enum:
-        - http
-        - rest_api
-        - pub_sub
-        - db_change_stream
+      - http
+      - rest_api
+      - pub_sub
+      - db_change_stream
       type: string
       x-enum-varnames:
-        - HTTPSource
-        - RestApiSource
-        - PubSubSource
-        - DBChangeStream
+      - HTTPSource
+      - RestApiSource
+      - PubSubSource
+      - DBChangeStream
     datastore.StrategyProvider:
       enum:
-        - linear
-        - exponential
+      - linear
+      - exponential
       type: string
       x-enum-varnames:
-        - LinearStrategyProvider
-        - ExponentialStrategyProvider
+      - LinearStrategyProvider
+      - ExponentialStrategyProvider
     datastore.SubscriptionType:
       enum:
-        - cli
-        - api
+      - cli
+      - api
       type: string
       x-enum-varnames:
-        - SubscriptionTypeCLI
-        - SubscriptionTypeAPI
+      - SubscriptionTypeCLI
+      - SubscriptionTypeAPI
     datastore.TwitterProviderConfig:
       properties:
         crc_verified_at:
@@ -561,16 +573,16 @@ components:
       type: object
     datastore.VerifierType:
       enum:
-        - noop
-        - hmac
-        - basic_auth
-        - api_key
+      - noop
+      - hmac
+      - basic_auth
+      - api_key
       type: string
       x-enum-varnames:
-        - NoopVerifier
-        - HMacVerifier
-        - BasicAuthVerifier
-        - APIKeyVerifier
+      - NoopVerifier
+      - HMacVerifier
+      - BasicAuthVerifier
+      - APIKeyVerifier
     handlers.Stub:
       type: object
     httpheader.HTTPHeader:
@@ -618,6 +630,8 @@ components:
           type: string
         schema:
           type: string
+        vhost:
+          type: string
       type: object
     models.ApiKey:
       properties:
@@ -635,6 +649,8 @@ components:
       type: object
     models.BroadcastEvent:
       properties:
+        acknowledged_at:
+          type: string
         custom_headers:
           additionalProperties:
             type: string
@@ -645,9 +661,7 @@ components:
           description: |-
             Data is an arbitrary JSON value that gets sent as the body of the
             webhook to the endpoints
-          items:
-            type: integer
-          type: array
+          type: object
         event_type:
           description: Event Type is used for filtering and debugging e.g invoice.paid
           type: string
@@ -667,7 +681,7 @@ components:
           type: string
         authentication:
           allOf:
-            - $ref: '#/components/schemas/models.EndpointAuthentication'
+          - $ref: '#/components/schemas/models.EndpointAuthentication'
           description: |-
             This is used to define any custom authentication required by the endpoint. This
             shouldn't be needed often because webhook endpoints usually should be exposed to
@@ -747,12 +761,22 @@ components:
       type: object
     models.CreateSource:
       properties:
+        body_function:
+          description: |-
+            Function is a javascript function used to mutate the payload
+            immediately after ingesting an event
+          type: string
         custom_response:
           allOf:
-            - $ref: '#/components/schemas/models.CustomResponse'
+          - $ref: '#/components/schemas/models.CustomResponse'
           description: |-
             Custom response is used to define a custom response for incoming
             webhooks project sources only.
+        header_function:
+          description: |-
+            Function is a javascript function used to mutate the headers
+            immediately after ingesting an event
+          type: string
         idempotency_keys:
           description: |-
             IdempotencyKeys are used to specify parts of a webhook request to uniquely
@@ -765,21 +789,21 @@ components:
           type: string
         provider:
           allOf:
-            - $ref: '#/components/schemas/datastore.SourceProvider'
+          - $ref: '#/components/schemas/datastore.SourceProvider'
           description: Use this to specify one of our predefined source types.
         pub_sub:
           allOf:
-            - $ref: '#/components/schemas/models.PubSubConfig'
+          - $ref: '#/components/schemas/models.PubSubConfig'
           description: |-
             PubSub are used to specify message broker sources for outgoing
             webhooks projects.
         type:
           allOf:
-            - $ref: '#/components/schemas/datastore.SourceType'
+          - $ref: '#/components/schemas/datastore.SourceType'
           description: Source Type.
         verifier:
           allOf:
-            - $ref: '#/components/schemas/models.VerifierConfig'
+          - $ref: '#/components/schemas/models.VerifierConfig'
           description: |-
             Verifiers are used to verify webhook events ingested in incoming
             webhooks projects.
@@ -788,7 +812,7 @@ components:
       properties:
         alert_config:
           allOf:
-            - $ref: '#/components/schemas/models.AlertConfiguration'
+          - $ref: '#/components/schemas/models.AlertConfiguration'
           description: Alert configuration
         app_id:
           description: Deprecated but necessary for backward compatibility
@@ -798,7 +822,7 @@ components:
           type: string
         filter_config:
           allOf:
-            - $ref: '#/components/schemas/models.FilterConfiguration'
+          - $ref: '#/components/schemas/models.FilterConfiguration'
           description: Filter configuration
         function:
           description: |-
@@ -810,11 +834,11 @@ components:
           type: string
         rate_limit_config:
           allOf:
-            - $ref: '#/components/schemas/models.RateLimitConfiguration'
+          - $ref: '#/components/schemas/models.RateLimitConfiguration'
           description: Rate limit configuration
         retry_config:
           allOf:
-            - $ref: '#/components/schemas/models.RetryConfiguration'
+          - $ref: '#/components/schemas/models.RetryConfiguration'
           description: Retry configuration
         source_id:
           description: Source Id
@@ -829,6 +853,8 @@ components:
       type: object
     models.DynamicEvent:
       properties:
+        acknowledged_at:
+          type: string
         custom_headers:
           additionalProperties:
             type: string
@@ -839,9 +865,7 @@ components:
           description: |-
             Data is an arbitrary JSON value that gets sent as the body of the
             webhook to the endpoints
-          items:
-            type: integer
-          type: array
+          type: object
         event_type:
           description: Event Type is used for filtering and debugging e.g invoice.paid
           type: string
@@ -915,6 +939,8 @@ components:
       type: object
     models.EventDeliveryResponse:
       properties:
+        acknowledged_at:
+          type: string
         cli_metadata:
           $ref: '#/components/schemas/datastore.CLIMetadata'
         created_at:
@@ -942,7 +968,10 @@ components:
         idempotency_key:
           type: string
         latency:
+          description: 'Deprecated: Latency is deprecated.'
           type: string
+        latency_seconds:
+          type: number
         metadata:
           $ref: '#/components/schemas/datastore.Metadata'
         project_id:
@@ -962,6 +991,8 @@ components:
       type: object
     models.EventResponse:
       properties:
+        acknowledged_at:
+          type: string
         app_id:
           description: Deprecated
           type: string
@@ -1038,9 +1069,7 @@ components:
           description: |-
             Data is an arbitrary JSON value that gets sent as the body of the
             webhook to the endpoints
-          items:
-            type: integer
-          type: array
+          type: object
         event_type:
           description: Event Type is used for filtering and debugging e.g invoice.paid
           type: string
@@ -1061,13 +1090,31 @@ components:
           type: array
         filter:
           allOf:
-            - $ref: '#/components/schemas/models.FS'
+          - $ref: '#/components/schemas/models.FS'
           description: Body & Header filters
       type: object
     models.FilterSchema:
       properties:
         body: {}
         header: {}
+      type: object
+    models.FunctionRequest:
+      properties:
+        function:
+          type: string
+        payload:
+          additionalProperties: {}
+          type: object
+        type:
+          type: string
+      type: object
+    models.FunctionResponse:
+      properties:
+        log:
+          items:
+            type: string
+          type: array
+        payload: {}
       type: object
     models.GooglePubSubConfig:
       properties:
@@ -1241,7 +1288,7 @@ components:
           type: integer
         type:
           allOf:
-            - $ref: '#/components/schemas/datastore.StrategyProvider'
+          - $ref: '#/components/schemas/datastore.StrategyProvider'
           description: Retry Strategy type
       type: object
     models.SQSPubSubConfig:
@@ -1257,6 +1304,8 @@ components:
       type: object
     models.SourceResponse:
       properties:
+        body_function:
+          type: string
         created_at:
           type: string
         custom_response:
@@ -1267,6 +1316,8 @@ components:
           items:
             type: string
           type: array
+        header_function:
+          type: string
         idempotency_keys:
           items:
             type: string
@@ -1296,19 +1347,11 @@ components:
         verifier:
           $ref: '#/components/schemas/datastore.VerifierConfig'
       type: object
-    models.SubscriptionFunctionResponse:
-      properties:
-        log:
-          items:
-            type: string
-          type: array
-        payload: {}
-      type: object
     models.SubscriptionResponse:
       properties:
         alert_config:
           allOf:
-            - $ref: '#/components/schemas/datastore.AlertConfiguration'
+          - $ref: '#/components/schemas/datastore.AlertConfiguration'
           description: subscription config
         created_at:
           type: string
@@ -1321,7 +1364,7 @@ components:
         filter_config:
           $ref: '#/components/schemas/datastore.FilterConfiguration'
         function:
-          $ref: '#/components/schemas/null.String'
+          type: string
         name:
           type: string
         rate_limit_config:
@@ -1341,20 +1384,12 @@ components:
       properties:
         request:
           allOf:
-            - $ref: '#/components/schemas/models.FilterSchema'
+          - $ref: '#/components/schemas/models.FilterSchema'
           description: Same Request & Headers
         schema:
           allOf:
-            - $ref: '#/components/schemas/models.FilterSchema'
+          - $ref: '#/components/schemas/models.FilterSchema'
           description: Sample test schema
-      type: object
-    models.TestWebhookFunction:
-      properties:
-        function:
-          type: string
-        payload:
-          additionalProperties: true
-          type: object
       type: object
     models.UpdateCustomResponse:
       properties:
@@ -1372,7 +1407,7 @@ components:
           type: boolean
         authentication:
           allOf:
-            - $ref: '#/components/schemas/models.EndpointAuthentication'
+          - $ref: '#/components/schemas/models.EndpointAuthentication'
           description: |-
             This is used to define any custom authentication required by the endpoint. This
             shouldn't be needed often because webhook endpoints usually should be exposed to
@@ -1425,9 +1460,14 @@ components:
       type: object
     models.UpdateSource:
       properties:
+        body_function:
+          description: |-
+            Function is a javascript function used to mutate the payload
+            immediately after ingesting an event
+          type: string
         custom_response:
           allOf:
-            - $ref: '#/components/schemas/models.UpdateCustomResponse'
+          - $ref: '#/components/schemas/models.UpdateCustomResponse'
           description: |-
             Custom response is used to define a custom response for incoming
             webhooks project sources only.
@@ -1437,6 +1477,11 @@ components:
           items:
             type: string
           type: array
+        header_function:
+          description: |-
+            Function is a javascript function used to mutate the headers
+            immediately after ingesting an event
+          type: string
         idempotency_keys:
           description: |-
             IdempotencyKeys are used to specify parts of a webhook request to uniquely
@@ -1452,17 +1497,17 @@ components:
           type: string
         pub_sub:
           allOf:
-            - $ref: '#/components/schemas/models.PubSubConfig'
+          - $ref: '#/components/schemas/models.PubSubConfig'
           description: |-
             PubSub are used to specify message broker sources for outgoing
-            webhooks projects, you only need to speicfy this when the source type is `pub_sub`.
+            webhooks projects, you only need to specify this when the source type is `pub_sub`.
         type:
           allOf:
-            - $ref: '#/components/schemas/datastore.SourceType'
+          - $ref: '#/components/schemas/datastore.SourceType'
           description: Source Type.
         verifier:
           allOf:
-            - $ref: '#/components/schemas/models.VerifierConfig'
+          - $ref: '#/components/schemas/models.VerifierConfig'
           description: |-
             Verifiers are used to verify webhook events ingested in incoming
             webhooks projects.
@@ -1471,7 +1516,7 @@ components:
       properties:
         alert_config:
           allOf:
-            - $ref: '#/components/schemas/models.AlertConfiguration'
+          - $ref: '#/components/schemas/models.AlertConfiguration'
           description: Alert configuration
         app_id:
           description: Deprecated but necessary for backward compatibility
@@ -1481,7 +1526,7 @@ components:
           type: string
         filter_config:
           allOf:
-            - $ref: '#/components/schemas/models.FilterConfiguration'
+          - $ref: '#/components/schemas/models.FilterConfiguration'
           description: Filter configuration
         function:
           description: |-
@@ -1493,11 +1538,11 @@ components:
           type: string
         rate_limit_config:
           allOf:
-            - $ref: '#/components/schemas/models.RateLimitConfiguration'
+          - $ref: '#/components/schemas/models.RateLimitConfiguration'
           description: Rate limit configuration
         retry_config:
           allOf:
-            - $ref: '#/components/schemas/models.RetryConfiguration'
+          - $ref: '#/components/schemas/models.RetryConfiguration'
           description: Retry configuration
         source_id:
           description: Source Id
@@ -1513,14 +1558,6 @@ components:
           $ref: '#/components/schemas/models.HMac'
         type:
           $ref: '#/components/schemas/datastore.VerifierType'
-      type: object
-    null.String:
-      properties:
-        string:
-          type: string
-        valid:
-          description: Valid is true if String is not NULL
-          type: boolean
       type: object
     util.ServerResponse:
       properties:
@@ -1554,119 +1591,119 @@ paths:
       description: This endpoint fetches an endpoints
       operationId: GetEndpoints
       parameters:
-        - description: Project ID
-          in: path
-          name: projectID
-          required: true
-          schema:
-            type: string
-        - in: query
-          name: direction
-          schema:
-            enum:
-              - next
-              - prev
-            type: string
-          x-enum-varnames:
-            - Next
-            - Prev
-        - description: A pagination cursor to fetch the next page of a list
-          in: query
-          name: next_page_cursor
-          schema:
-            type: string
-        - description: The owner ID of the endpoint
-          in: query
-          name: ownerId
-          schema:
-            type: string
-        - description: The number of items to return per page
-          in: query
-          name: perPage
-          schema:
-            type: integer
-        - description: A pagination cursor to fetch the previous page of a list
-          in: query
-          name: prev_page_cursor
-          schema:
-            type: string
-        - description: The name of the endpoint
-          in: query
-          name: q
-          schema:
-            type: string
-        - description: Sort order, values are `ASC` or `DESC`, defaults to `DESC`
-          in: query
-          name: sort
-          schema:
-            type: string
+      - description: Project ID
+        in: path
+        name: projectID
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: direction
+        schema:
+          enum:
+          - next
+          - prev
+          type: string
+        x-enum-varnames:
+        - Next
+        - Prev
+      - description: A pagination cursor to fetch the next page of a list
+        in: query
+        name: next_page_cursor
+        schema:
+          type: string
+      - description: The owner ID of the endpoint
+        in: query
+        name: ownerId
+        schema:
+          type: string
+      - description: The number of items to return per page
+        in: query
+        name: perPage
+        schema:
+          type: integer
+      - description: A pagination cursor to fetch the previous page of a list
+        in: query
+        name: prev_page_cursor
+        schema:
+          type: string
+      - description: The name of the endpoint
+        in: query
+        name: q
+        schema:
+          type: string
+      - description: Sort order, values are `ASC` or `DESC`, defaults to `DESC`
+        in: query
+        name: sort
+        schema:
+          type: string
       responses:
         "200":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        allOf:
-                          - $ref: '#/components/schemas/models.PagedResponse'
-                          - properties:
-                              content:
-                                items:
-                                  $ref: '#/components/schemas/models.EndpointResponse'
-                                type: array
-                            type: object
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      allOf:
+                      - $ref: '#/components/schemas/models.PagedResponse'
+                      - properties:
+                          content:
+                            items:
+                              $ref: '#/components/schemas/models.EndpointResponse'
+                            type: array
+                        type: object
+                  type: object
           description: OK
         "400":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Not Found
       security:
-        - ApiKeyAuth: []
+      - ApiKeyAuth: []
       summary: List all endpoints
       tags:
-        - Endpoints
+      - Endpoints
     post:
       description: This endpoint creates an endpoint
       operationId: CreateEndpoint
       parameters:
-        - description: Project ID
-          in: path
-          name: projectID
-          required: true
-          schema:
-            type: string
+      - description: Project ID
+        in: path
+        name: projectID
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -1676,204 +1713,204 @@ paths:
         required: true
         x-originalParamName: endpoint
       responses:
-        "200":
+        "201":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/models.EndpointResponse'
-                    type: object
-          description: OK
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/models.EndpointResponse'
+                  type: object
+          description: Created
         "400":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Not Found
       security:
-        - ApiKeyAuth: []
+      - ApiKeyAuth: []
       summary: Create an endpoint
       tags:
-        - Endpoints
+      - Endpoints
   /v1/projects/{projectID}/endpoints/{endpointID}:
     delete:
       description: This endpoint deletes an endpoint
       operationId: DeleteEndpoint
       parameters:
-        - description: Project ID
-          in: path
-          name: projectID
-          required: true
-          schema:
-            type: string
-        - description: Endpoint ID
-          in: path
-          name: endpointID
-          required: true
-          schema:
-            type: string
+      - description: Project ID
+        in: path
+        name: projectID
+        required: true
+        schema:
+          type: string
+      - description: Endpoint ID
+        in: path
+        name: endpointID
+        required: true
+        schema:
+          type: string
       responses:
         "200":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: OK
         "400":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Not Found
       security:
-        - ApiKeyAuth: []
+      - ApiKeyAuth: []
       summary: Delete endpoint
       tags:
-        - Endpoints
+      - Endpoints
     get:
       description: This endpoint fetches an endpoint
       operationId: GetEndpoint
       parameters:
-        - description: Project ID
-          in: path
-          name: projectID
-          required: true
-          schema:
-            type: string
-        - description: Endpoint ID
-          in: path
-          name: endpointID
-          required: true
-          schema:
-            type: string
+      - description: Project ID
+        in: path
+        name: projectID
+        required: true
+        schema:
+          type: string
+      - description: Endpoint ID
+        in: path
+        name: endpointID
+        required: true
+        schema:
+          type: string
       responses:
         "200":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/models.EndpointResponse'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/models.EndpointResponse'
+                  type: object
           description: OK
         "400":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Not Found
       security:
-        - ApiKeyAuth: []
+      - ApiKeyAuth: []
       summary: Retrieve endpoint
       tags:
-        - Endpoints
+      - Endpoints
     put:
       description: This endpoint updates an endpoint
       operationId: UpdateEndpoint
       parameters:
-        - description: Project ID
-          in: path
-          name: projectID
-          required: true
-          schema:
-            type: string
-        - description: Endpoint ID
-          in: path
-          name: endpointID
-          required: true
-          schema:
-            type: string
+      - description: Project ID
+        in: path
+        name: projectID
+        required: true
+        schema:
+          type: string
+      - description: Endpoint ID
+        in: path
+        name: endpointID
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -1883,72 +1920,72 @@ paths:
         required: true
         x-originalParamName: endpoint
       responses:
-        "200":
+        "202":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/models.EndpointResponse'
-                    type: object
-          description: OK
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/models.EndpointResponse'
+                  type: object
+          description: Accepted
         "400":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Not Found
       security:
-        - ApiKeyAuth: []
+      - ApiKeyAuth: []
       summary: Update an endpoint
       tags:
-        - Endpoints
+      - Endpoints
   /v1/projects/{projectID}/endpoints/{endpointID}/expire_secret:
     put:
       description: This endpoint expires and re-generates the endpoint secret.
       operationId: ExpireSecret
       parameters:
-        - description: Project ID
-          in: path
-          name: projectID
-          required: true
-          schema:
-            type: string
-        - description: Endpoint ID
-          in: path
-          name: endpointID
-          required: true
-          schema:
-            type: string
+      - description: Project ID
+        in: path
+        name: projectID
+        required: true
+        schema:
+          type: string
+      - description: Endpoint ID
+        in: path
+        name: endpointID
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -1963,682 +2000,682 @@ paths:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/models.EndpointResponse'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/models.EndpointResponse'
+                  type: object
           description: OK
         "400":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Not Found
       security:
-        - ApiKeyAuth: []
+      - ApiKeyAuth: []
       summary: Roll endpoint secret
       tags:
-        - Endpoints
+      - Endpoints
   /v1/projects/{projectID}/endpoints/{endpointID}/pause:
     put:
       description: This endpoint toggles an endpoint status between the active and
         paused states
       operationId: PauseEndpoint
       parameters:
-        - description: Project ID
-          in: path
-          name: projectID
-          required: true
-          schema:
-            type: string
-        - description: Endpoint ID
-          in: path
-          name: endpointID
-          required: true
-          schema:
-            type: string
+      - description: Project ID
+        in: path
+        name: projectID
+        required: true
+        schema:
+          type: string
+      - description: Endpoint ID
+        in: path
+        name: endpointID
+        required: true
+        schema:
+          type: string
       responses:
-        "200":
+        "202":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/models.EndpointResponse'
-                    type: object
-          description: OK
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/models.EndpointResponse'
+                  type: object
+          description: Accepted
         "400":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Not Found
       security:
-        - ApiKeyAuth: []
+      - ApiKeyAuth: []
       summary: Pause endpoint
       tags:
-        - Endpoints
+      - Endpoints
   /v1/projects/{projectID}/eventdeliveries:
     get:
       description: This endpoint retrieves all event deliveries paginated.
       operationId: GetEventDeliveriesPaged
       parameters:
-        - description: Project ID
-          in: path
-          name: projectID
-          required: true
-          schema:
+      - description: Project ID
+        in: path
+        name: projectID
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: direction
+        schema:
+          enum:
+          - next
+          - prev
+          type: string
+        x-enum-varnames:
+        - Next
+        - Prev
+      - description: The end date
+        in: query
+        name: endDate
+        schema:
+          type: string
+      - description: A list of endpoint IDs to filter by
+        in: query
+        name: endpointId
+        schema:
+          items:
             type: string
-        - in: query
-          name: direction
-          schema:
-            enum:
-              - next
-              - prev
+          type: array
+      - description: Event ID to filter by
+        in: query
+        name: eventId
+        schema:
+          type: string
+      - description: EventType to filter by
+        in: query
+        name: event_type
+        schema:
+          type: string
+      - description: IdempotencyKey to filter by
+        in: query
+        name: idempotencyKey
+        schema:
+          type: string
+      - description: A pagination cursor to fetch the next page of a list
+        in: query
+        name: next_page_cursor
+        schema:
+          type: string
+      - description: The number of items to return per page
+        in: query
+        name: perPage
+        schema:
+          type: integer
+      - description: A pagination cursor to fetch the previous page of a list
+        in: query
+        name: prev_page_cursor
+        schema:
+          type: string
+      - description: Sort order, values are `ASC` or `DESC`, defaults to `DESC`
+        in: query
+        name: sort
+        schema:
+          type: string
+      - description: The start date
+        in: query
+        name: startDate
+        schema:
+          type: string
+      - description: A list of event delivery statuses to filter by
+        in: query
+        name: status
+        schema:
+          items:
             type: string
-          x-enum-varnames:
-            - Next
-            - Prev
-        - description: The end date
-          in: query
-          name: endDate
-          schema:
-            type: string
-        - description: A list of endpoint IDs to filter by
-          in: query
-          name: endpointId
-          schema:
-            items:
-              type: string
-            type: array
-        - description: Event ID to filter by
-          in: query
-          name: eventId
-          schema:
-            type: string
-        - description: EventType to filter by
-          in: query
-          name: event_type
-          schema:
-            type: string
-        - description: IdempotencyKey to filter by
-          in: query
-          name: idempotencyKey
-          schema:
-            type: string
-        - description: A pagination cursor to fetch the next page of a list
-          in: query
-          name: next_page_cursor
-          schema:
-            type: string
-        - description: The number of items to return per page
-          in: query
-          name: perPage
-          schema:
-            type: integer
-        - description: A pagination cursor to fetch the previous page of a list
-          in: query
-          name: prev_page_cursor
-          schema:
-            type: string
-        - description: Sort order, values are `ASC` or `DESC`, defaults to `DESC`
-          in: query
-          name: sort
-          schema:
-            type: string
-        - description: The start date
-          in: query
-          name: startDate
-          schema:
-            type: string
-        - description: A list of event delivery statuses to filter by
-          in: query
-          name: status
-          schema:
-            items:
-              type: string
-            type: array
-        - description: SubscriptionID to filter by
-          in: query
-          name: subscriptionId
-          schema:
-            type: string
+          type: array
+      - description: SubscriptionID to filter by
+        in: query
+        name: subscriptionId
+        schema:
+          type: string
       responses:
         "200":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        allOf:
-                          - $ref: '#/components/schemas/models.PagedResponse'
-                          - properties:
-                              content:
-                                items:
-                                  $ref: '#/components/schemas/models.EventDeliveryResponse'
-                                type: array
-                            type: object
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      allOf:
+                      - $ref: '#/components/schemas/models.PagedResponse'
+                      - properties:
+                          content:
+                            items:
+                              $ref: '#/components/schemas/models.EventDeliveryResponse'
+                            type: array
+                        type: object
+                  type: object
           description: OK
         "400":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Not Found
       security:
-        - ApiKeyAuth: []
+      - ApiKeyAuth: []
       summary: List all event deliveries
       tags:
-        - Event Deliveries
+      - Event Deliveries
   /v1/projects/{projectID}/eventdeliveries/{eventDeliveryID}:
     get:
       description: This endpoint fetches an event delivery.
       operationId: GetEventDelivery
       parameters:
-        - description: Project ID
-          in: path
-          name: projectID
-          required: true
-          schema:
-            type: string
-        - description: event delivery id
-          in: path
-          name: eventDeliveryID
-          required: true
-          schema:
-            type: string
+      - description: Project ID
+        in: path
+        name: projectID
+        required: true
+        schema:
+          type: string
+      - description: event delivery id
+        in: path
+        name: eventDeliveryID
+        required: true
+        schema:
+          type: string
       responses:
         "200":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/models.EventDeliveryResponse'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/models.EventDeliveryResponse'
+                  type: object
           description: OK
         "400":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Not Found
       security:
-        - ApiKeyAuth: []
+      - ApiKeyAuth: []
       summary: Retrieve an event delivery
       tags:
-        - Event Deliveries
+      - Event Deliveries
   /v1/projects/{projectID}/eventdeliveries/{eventDeliveryID}/deliveryattempts:
     get:
       description: This endpoint fetches an app message's delivery attempts
       operationId: GetDeliveryAttempts
       parameters:
-        - description: Project ID
-          in: path
-          name: projectID
-          required: true
-          schema:
-            type: string
-        - description: event delivery id
-          in: path
-          name: eventDeliveryID
-          required: true
-          schema:
-            type: string
+      - description: Project ID
+        in: path
+        name: projectID
+        required: true
+        schema:
+          type: string
+      - description: event delivery id
+        in: path
+        name: eventDeliveryID
+        required: true
+        schema:
+          type: string
       responses:
         "200":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        items:
-                          $ref: '#/components/schemas/datastore.DeliveryAttempt'
-                        type: array
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      items:
+                        $ref: '#/components/schemas/datastore.DeliveryAttempt'
+                      type: array
+                  type: object
           description: OK
         "400":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Not Found
       security:
-        - ApiKeyAuth: []
+      - ApiKeyAuth: []
       summary: List delivery attempts
       tags:
-        - Delivery Attempts
+      - Delivery Attempts
   /v1/projects/{projectID}/eventdeliveries/{eventDeliveryID}/deliveryattempts/{deliveryAttemptID}:
     get:
       description: This endpoint fetches an app event delivery attempt
       operationId: GetDeliveryAttempt
       parameters:
-        - description: Project ID
-          in: path
-          name: projectID
-          required: true
-          schema:
-            type: string
-        - description: event delivery id
-          in: path
-          name: eventDeliveryID
-          required: true
-          schema:
-            type: string
-        - description: delivery attempt id
-          in: path
-          name: deliveryAttemptID
-          required: true
-          schema:
-            type: string
+      - description: Project ID
+        in: path
+        name: projectID
+        required: true
+        schema:
+          type: string
+      - description: event delivery id
+        in: path
+        name: eventDeliveryID
+        required: true
+        schema:
+          type: string
+      - description: delivery attempt id
+        in: path
+        name: deliveryAttemptID
+        required: true
+        schema:
+          type: string
       responses:
         "200":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/datastore.DeliveryAttempt'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/datastore.DeliveryAttempt'
+                  type: object
           description: OK
         "400":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Not Found
       security:
-        - ApiKeyAuth: []
+      - ApiKeyAuth: []
       summary: Retrieve a delivery attempt
       tags:
-        - Delivery Attempts
+      - Delivery Attempts
   /v1/projects/{projectID}/eventdeliveries/{eventDeliveryID}/resend:
     put:
       description: This endpoint retries an event delivery.
       operationId: ResendEventDelivery
       parameters:
-        - description: Project ID
-          in: path
-          name: projectID
-          required: true
-          schema:
-            type: string
-        - description: event delivery id
-          in: path
-          name: eventDeliveryID
-          required: true
-          schema:
-            type: string
+      - description: Project ID
+        in: path
+        name: projectID
+        required: true
+        schema:
+          type: string
+      - description: event delivery id
+        in: path
+        name: eventDeliveryID
+        required: true
+        schema:
+          type: string
       responses:
         "200":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/models.EventDeliveryResponse'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/models.EventDeliveryResponse'
+                  type: object
           description: OK
         "400":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Not Found
       security:
-        - ApiKeyAuth: []
+      - ApiKeyAuth: []
       summary: Retry event delivery
       tags:
-        - Event Deliveries
+      - Event Deliveries
   /v1/projects/{projectID}/eventdeliveries/batchretry:
     post:
       description: This endpoint batch retries multiple event deliveries at once.
       operationId: BatchRetryEventDelivery
       parameters:
-        - description: Project ID
-          in: path
-          name: projectID
-          required: true
-          schema:
+      - description: Project ID
+        in: path
+        name: projectID
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: direction
+        schema:
+          enum:
+          - next
+          - prev
+          type: string
+        x-enum-varnames:
+        - Next
+        - Prev
+      - description: The end date
+        in: query
+        name: endDate
+        schema:
+          type: string
+      - description: A list of endpoint IDs to filter by
+        in: query
+        name: endpointId
+        schema:
+          items:
             type: string
-        - in: query
-          name: direction
-          schema:
-            enum:
-              - next
-              - prev
+          type: array
+      - description: Event ID to filter by
+        in: query
+        name: eventId
+        schema:
+          type: string
+      - description: EventType to filter by
+        in: query
+        name: event_type
+        schema:
+          type: string
+      - description: IdempotencyKey to filter by
+        in: query
+        name: idempotencyKey
+        schema:
+          type: string
+      - description: A pagination cursor to fetch the next page of a list
+        in: query
+        name: next_page_cursor
+        schema:
+          type: string
+      - description: The number of items to return per page
+        in: query
+        name: perPage
+        schema:
+          type: integer
+      - description: A pagination cursor to fetch the previous page of a list
+        in: query
+        name: prev_page_cursor
+        schema:
+          type: string
+      - description: Sort order, values are `ASC` or `DESC`, defaults to `DESC`
+        in: query
+        name: sort
+        schema:
+          type: string
+      - description: The start date
+        in: query
+        name: startDate
+        schema:
+          type: string
+      - description: A list of event delivery statuses to filter by
+        in: query
+        name: status
+        schema:
+          items:
             type: string
-          x-enum-varnames:
-            - Next
-            - Prev
-        - description: The end date
-          in: query
-          name: endDate
-          schema:
-            type: string
-        - description: A list of endpoint IDs to filter by
-          in: query
-          name: endpointId
-          schema:
-            items:
-              type: string
-            type: array
-        - description: Event ID to filter by
-          in: query
-          name: eventId
-          schema:
-            type: string
-        - description: EventType to filter by
-          in: query
-          name: event_type
-          schema:
-            type: string
-        - description: IdempotencyKey to filter by
-          in: query
-          name: idempotencyKey
-          schema:
-            type: string
-        - description: A pagination cursor to fetch the next page of a list
-          in: query
-          name: next_page_cursor
-          schema:
-            type: string
-        - description: The number of items to return per page
-          in: query
-          name: perPage
-          schema:
-            type: integer
-        - description: A pagination cursor to fetch the previous page of a list
-          in: query
-          name: prev_page_cursor
-          schema:
-            type: string
-        - description: Sort order, values are `ASC` or `DESC`, defaults to `DESC`
-          in: query
-          name: sort
-          schema:
-            type: string
-        - description: The start date
-          in: query
-          name: startDate
-          schema:
-            type: string
-        - description: A list of event delivery statuses to filter by
-          in: query
-          name: status
-          schema:
-            items:
-              type: string
-            type: array
-        - description: SubscriptionID to filter by
-          in: query
-          name: subscriptionId
-          schema:
-            type: string
+          type: array
+      - description: SubscriptionID to filter by
+        in: query
+        name: subscriptionId
+        schema:
+          type: string
       responses:
         "200":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: OK
         "400":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Not Found
       security:
-        - ApiKeyAuth: []
+      - ApiKeyAuth: []
       summary: Batch retry event delivery
       tags:
-        - Event Deliveries
+      - Event Deliveries
   /v1/projects/{projectID}/eventdeliveries/forceresend:
     post:
       description: This endpoint enables you retry a previously successful event delivery
       operationId: ForceResendEventDeliveries
       parameters:
-        - description: Project ID
-          in: path
-          name: projectID
-          required: true
-          schema:
-            type: string
+      - description: Project ID
+        in: path
+        name: projectID
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -2653,192 +2690,192 @@ paths:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: OK
         "400":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Not Found
       security:
-        - ApiKeyAuth: []
+      - ApiKeyAuth: []
       summary: Force retry event delivery
       tags:
-        - Event Deliveries
+      - Event Deliveries
   /v1/projects/{projectID}/events:
     get:
       description: This endpoint fetches app events with pagination
       operationId: GetEventsPaged
       parameters:
-        - description: Project ID
-          in: path
-          name: projectID
-          required: true
-          schema:
+      - description: Project ID
+        in: path
+        name: projectID
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: direction
+        schema:
+          enum:
+          - next
+          - prev
+          type: string
+        x-enum-varnames:
+        - Next
+        - Prev
+      - description: The end date
+        in: query
+        name: endDate
+        schema:
+          type: string
+      - description: A list of endpoint ids to filter by
+        in: query
+        name: endpointId
+        schema:
+          items:
             type: string
-        - in: query
-          name: direction
-          schema:
-            enum:
-              - next
-              - prev
+          type: array
+      - description: IdempotencyKey to filter by
+        in: query
+        name: idempotencyKey
+        schema:
+          type: string
+      - description: A pagination cursor to fetch the next page of a list
+        in: query
+        name: next_page_cursor
+        schema:
+          type: string
+      - description: The number of items to return per page
+        in: query
+        name: perPage
+        schema:
+          type: integer
+      - description: A pagination cursor to fetch the previous page of a list
+        in: query
+        name: prev_page_cursor
+        schema:
+          type: string
+      - description: Any arbitrary value to filter the events payload
+        in: query
+        name: query
+        schema:
+          type: string
+      - description: Sort order, values are `ASC` or `DESC`, defaults to `DESC`
+        in: query
+        name: sort
+        schema:
+          type: string
+      - description: A list of Source IDs to filter the events by.
+        in: query
+        name: sourceId
+        schema:
+          items:
             type: string
-          x-enum-varnames:
-            - Next
-            - Prev
-        - description: The end date
-          in: query
-          name: endDate
-          schema:
-            type: string
-        - description: A list of endpoint ids to filter by
-          in: query
-          name: endpointId
-          schema:
-            items:
-              type: string
-            type: array
-        - description: IdempotencyKey to filter by
-          in: query
-          name: idempotencyKey
-          schema:
-            type: string
-        - description: A pagination cursor to fetch the next page of a list
-          in: query
-          name: next_page_cursor
-          schema:
-            type: string
-        - description: The number of items to return per page
-          in: query
-          name: perPage
-          schema:
-            type: integer
-        - description: A pagination cursor to fetch the previous page of a list
-          in: query
-          name: prev_page_cursor
-          schema:
-            type: string
-        - description: Any arbitrary value to filter the events payload
-          in: query
-          name: query
-          schema:
-            type: string
-        - description: Sort order, values are `ASC` or `DESC`, defaults to `DESC`
-          in: query
-          name: sort
-          schema:
-            type: string
-        - description: A list of Source IDs to filter the events by.
-          in: query
-          name: sourceId
-          schema:
-            items:
-              type: string
-            type: array
-        - description: The start date
-          in: query
-          name: startDate
-          schema:
-            type: string
+          type: array
+      - description: The start date
+        in: query
+        name: startDate
+        schema:
+          type: string
       responses:
         "200":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        allOf:
-                          - $ref: '#/components/schemas/models.PagedResponse'
-                          - properties:
-                              content:
-                                items:
-                                  $ref: '#/components/schemas/models.EventResponse'
-                                type: array
-                            type: object
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      allOf:
+                      - $ref: '#/components/schemas/models.PagedResponse'
+                      - properties:
+                          content:
+                            items:
+                              $ref: '#/components/schemas/models.EventResponse'
+                            type: array
+                        type: object
+                  type: object
           description: OK
         "400":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Not Found
       security:
-        - ApiKeyAuth: []
+      - ApiKeyAuth: []
       summary: List all events
       tags:
-        - Events
+      - Events
     post:
       description: This endpoint creates an endpoint event
       operationId: CreateEndpointEvent
       parameters:
-        - description: Project ID
-          in: path
-          name: projectID
-          required: true
-          schema:
-            type: string
+      - description: Project ID
+        in: path
+        name: projectID
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -2848,331 +2885,331 @@ paths:
         required: true
         x-originalParamName: event
       responses:
-        "200":
+        "201":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
-          description: OK
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
+          description: Created
         "400":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Not Found
       security:
-        - ApiKeyAuth: []
+      - ApiKeyAuth: []
       summary: Create an event
       tags:
-        - Events
+      - Events
   /v1/projects/{projectID}/events/{eventID}:
     get:
       description: This endpoint retrieves an event
       operationId: GetEndpointEvent
       parameters:
-        - description: Project ID
-          in: path
-          name: projectID
-          required: true
-          schema:
-            type: string
-        - description: event id
-          in: path
-          name: eventID
-          required: true
-          schema:
-            type: string
+      - description: Project ID
+        in: path
+        name: projectID
+        required: true
+        schema:
+          type: string
+      - description: event id
+        in: path
+        name: eventID
+        required: true
+        schema:
+          type: string
       responses:
         "200":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/models.EventResponse'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/models.EventResponse'
+                  type: object
           description: OK
         "400":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Not Found
       security:
-        - ApiKeyAuth: []
+      - ApiKeyAuth: []
       summary: Retrieve an event
       tags:
-        - Events
+      - Events
   /v1/projects/{projectID}/events/{eventID}/replay:
     put:
       description: This endpoint replays an event afresh assuming it is a new event.
       operationId: ReplayEndpointEvent
       parameters:
-        - description: Project ID
-          in: path
-          name: projectID
-          required: true
-          schema:
-            type: string
-        - description: event id
-          in: path
-          name: eventID
-          required: true
-          schema:
-            type: string
+      - description: Project ID
+        in: path
+        name: projectID
+        required: true
+        schema:
+          type: string
+      - description: event id
+        in: path
+        name: eventID
+        required: true
+        schema:
+          type: string
       responses:
         "200":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/models.EventResponse'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/models.EventResponse'
+                  type: object
           description: OK
         "400":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Not Found
       security:
-        - ApiKeyAuth: []
+      - ApiKeyAuth: []
       summary: Replay event
       tags:
-        - Events
+      - Events
   /v1/projects/{projectID}/events/batchreplay:
     post:
       description: This endpoint replays multiple events at once.
       operationId: BatchReplayEvents
       parameters:
-        - description: Project ID
-          in: path
-          name: projectID
-          required: true
-          schema:
+      - description: Project ID
+        in: path
+        name: projectID
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: direction
+        schema:
+          enum:
+          - next
+          - prev
+          type: string
+        x-enum-varnames:
+        - Next
+        - Prev
+      - description: The end date
+        in: query
+        name: endDate
+        schema:
+          type: string
+      - description: A list of endpoint ids to filter by
+        in: query
+        name: endpointId
+        schema:
+          items:
             type: string
-        - in: query
-          name: direction
-          schema:
-            enum:
-              - next
-              - prev
+          type: array
+      - description: IdempotencyKey to filter by
+        in: query
+        name: idempotencyKey
+        schema:
+          type: string
+      - description: A pagination cursor to fetch the next page of a list
+        in: query
+        name: next_page_cursor
+        schema:
+          type: string
+      - description: The number of items to return per page
+        in: query
+        name: perPage
+        schema:
+          type: integer
+      - description: A pagination cursor to fetch the previous page of a list
+        in: query
+        name: prev_page_cursor
+        schema:
+          type: string
+      - description: Any arbitrary value to filter the events payload
+        in: query
+        name: query
+        schema:
+          type: string
+      - description: Sort order, values are `ASC` or `DESC`, defaults to `DESC`
+        in: query
+        name: sort
+        schema:
+          type: string
+      - description: A list of Source IDs to filter the events by.
+        in: query
+        name: sourceId
+        schema:
+          items:
             type: string
-          x-enum-varnames:
-            - Next
-            - Prev
-        - description: The end date
-          in: query
-          name: endDate
-          schema:
-            type: string
-        - description: A list of endpoint ids to filter by
-          in: query
-          name: endpointId
-          schema:
-            items:
-              type: string
-            type: array
-        - description: IdempotencyKey to filter by
-          in: query
-          name: idempotencyKey
-          schema:
-            type: string
-        - description: A pagination cursor to fetch the next page of a list
-          in: query
-          name: next_page_cursor
-          schema:
-            type: string
-        - description: The number of items to return per page
-          in: query
-          name: perPage
-          schema:
-            type: integer
-        - description: A pagination cursor to fetch the previous page of a list
-          in: query
-          name: prev_page_cursor
-          schema:
-            type: string
-        - description: Any arbitrary value to filter the events payload
-          in: query
-          name: query
-          schema:
-            type: string
-        - description: Sort order, values are `ASC` or `DESC`, defaults to `DESC`
-          in: query
-          name: sort
-          schema:
-            type: string
-        - description: A list of Source IDs to filter the events by.
-          in: query
-          name: sourceId
-          schema:
-            items:
-              type: string
-            type: array
-        - description: The start date
-          in: query
-          name: startDate
-          schema:
-            type: string
+          type: array
+      - description: The start date
+        in: query
+        name: startDate
+        schema:
+          type: string
       responses:
         "200":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        allOf:
-                          - $ref: '#/components/schemas/datastore.Event'
-                          - properties:
-                              data:
-                                $ref: '#/components/schemas/handlers.Stub'
-                            type: object
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      allOf:
+                      - $ref: '#/components/schemas/datastore.Event'
+                      - properties:
+                          data:
+                            $ref: '#/components/schemas/handlers.Stub'
+                        type: object
+                  type: object
           description: OK
         "400":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Not Found
       security:
-        - ApiKeyAuth: []
+      - ApiKeyAuth: []
       summary: Batch replay events
       tags:
-        - Events
+      - Events
   /v1/projects/{projectID}/events/broadcast:
     post:
       description: This endpoint creates a event that is broadcast to every endpoint
         whose subscription matches the given event type.
       operationId: CreateBroadcastEvent
       parameters:
-        - description: Project ID
-          in: path
-          name: projectID
-          required: true
-          schema:
-            type: string
+      - description: Project ID
+        in: path
+        name: projectID
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -3182,55 +3219,55 @@ paths:
         required: true
         x-originalParamName: event
       responses:
-        "200":
+        "201":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/models.EventResponse'
-                    type: object
-          description: OK
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/models.EventResponse'
+                  type: object
+          description: Created
         "400":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Not Found
       security:
-        - ApiKeyAuth: []
+      - ApiKeyAuth: []
       summary: Create a broadcast event
       tags:
-        - Events
+      - Events
   /v1/projects/{projectID}/events/dynamic:
     post:
       description: This endpoint does not require creating endpoint and subscriptions
@@ -3238,12 +3275,12 @@ paths:
         delivers the events
       operationId: CreateDynamicEvent
       parameters:
-        - description: Project ID
-          in: path
-          name: projectID
-          required: true
-          schema:
-            type: string
+      - description: Project ID
+        in: path
+        name: projectID
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -3253,62 +3290,62 @@ paths:
         required: true
         x-originalParamName: event
       responses:
-        "200":
+        "201":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/handlers.Stub'
-          description: OK
+          description: Created
         "400":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Not Found
       security:
-        - ApiKeyAuth: []
+      - ApiKeyAuth: []
       summary: Dynamic Events
       tags:
-        - Events
+      - Events
   /v1/projects/{projectID}/events/fanout:
     post:
       description: This endpoint uses the owner_id to fan out an event to multiple
         endpoints.
       operationId: CreateEndpointFanoutEvent
       parameters:
-        - description: Project ID
-          in: path
-          name: projectID
-          required: true
-          schema:
-            type: string
+      - description: Project ID
+        in: path
+        name: projectID
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -3318,415 +3355,415 @@ paths:
         required: true
         x-originalParamName: event
       responses:
-        "200":
+        "201":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
-          description: OK
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
+          description: Created
         "400":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Not Found
       security:
-        - ApiKeyAuth: []
+      - ApiKeyAuth: []
       summary: Fan out an event
       tags:
-        - Events
+      - Events
   /v1/projects/{projectID}/meta-events:
     get:
       description: This endpoint fetches meta events with pagination
       operationId: GetMetaEventsPaged
       parameters:
-        - description: Project ID
-          in: path
-          name: projectID
-          required: true
-          schema:
-            type: string
-        - in: query
-          name: direction
-          schema:
-            enum:
-              - next
-              - prev
-            type: string
-          x-enum-varnames:
-            - Next
-            - Prev
-        - description: The end date
-          in: query
-          name: endDate
-          schema:
-            type: string
-        - description: A pagination cursor to fetch the next page of a list
-          in: query
-          name: next_page_cursor
-          schema:
-            type: string
-        - description: The number of items to return per page
-          in: query
-          name: perPage
-          schema:
-            type: integer
-        - description: A pagination cursor to fetch the previous page of a list
-          in: query
-          name: prev_page_cursor
-          schema:
-            type: string
-        - description: Sort order, values are `ASC` or `DESC`, defaults to `DESC`
-          in: query
-          name: sort
-          schema:
-            type: string
-        - description: The start date
-          in: query
-          name: startDate
-          schema:
-            type: string
+      - description: Project ID
+        in: path
+        name: projectID
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: direction
+        schema:
+          enum:
+          - next
+          - prev
+          type: string
+        x-enum-varnames:
+        - Next
+        - Prev
+      - description: The end date
+        in: query
+        name: endDate
+        schema:
+          type: string
+      - description: A pagination cursor to fetch the next page of a list
+        in: query
+        name: next_page_cursor
+        schema:
+          type: string
+      - description: The number of items to return per page
+        in: query
+        name: perPage
+        schema:
+          type: integer
+      - description: A pagination cursor to fetch the previous page of a list
+        in: query
+        name: prev_page_cursor
+        schema:
+          type: string
+      - description: Sort order, values are `ASC` or `DESC`, defaults to `DESC`
+        in: query
+        name: sort
+        schema:
+          type: string
+      - description: The start date
+        in: query
+        name: startDate
+        schema:
+          type: string
       responses:
         "200":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        allOf:
-                          - $ref: '#/components/schemas/models.PagedResponse'
-                          - properties:
-                              content:
-                                items:
-                                  $ref: '#/components/schemas/models.MetaEventResponse'
-                                type: array
-                            type: object
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      allOf:
+                      - $ref: '#/components/schemas/models.PagedResponse'
+                      - properties:
+                          content:
+                            items:
+                              $ref: '#/components/schemas/models.MetaEventResponse'
+                            type: array
+                        type: object
+                  type: object
           description: OK
         "400":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Not Found
       security:
-        - ApiKeyAuth: []
+      - ApiKeyAuth: []
       summary: List all meta events
       tags:
-        - Meta Events
+      - Meta Events
   /v1/projects/{projectID}/meta-events/{metaEventID}:
     get:
       description: This endpoint retrieves a meta event
       operationId: GetMetaEvent
       parameters:
-        - description: Project ID
-          in: path
-          name: projectID
-          required: true
-          schema:
-            type: string
-        - description: meta event id
-          in: path
-          name: metaEventID
-          required: true
-          schema:
-            type: string
+      - description: Project ID
+        in: path
+        name: projectID
+        required: true
+        schema:
+          type: string
+      - description: meta event id
+        in: path
+        name: metaEventID
+        required: true
+        schema:
+          type: string
       responses:
         "200":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/models.MetaEventResponse'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/models.MetaEventResponse'
+                  type: object
           description: OK
         "400":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Not Found
       security:
-        - ApiKeyAuth: []
+      - ApiKeyAuth: []
       summary: Retrieve a meta event
       tags:
-        - Meta Events
+      - Meta Events
   /v1/projects/{projectID}/meta-events/{metaEventID}/resend:
     put:
       description: This endpoint retries a meta event
       operationId: ResendMetaEvent
       parameters:
-        - description: Project ID
-          in: path
-          name: projectID
-          required: true
-          schema:
-            type: string
-        - description: meta event id
-          in: path
-          name: metaEventID
-          required: true
-          schema:
-            type: string
+      - description: Project ID
+        in: path
+        name: projectID
+        required: true
+        schema:
+          type: string
+      - description: meta event id
+        in: path
+        name: metaEventID
+        required: true
+        schema:
+          type: string
       responses:
         "200":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/models.MetaEventResponse'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/models.MetaEventResponse'
+                  type: object
           description: OK
         "400":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Not Found
       security:
-        - ApiKeyAuth: []
+      - ApiKeyAuth: []
       summary: Retry meta event
       tags:
-        - Meta Events
+      - Meta Events
   /v1/projects/{projectID}/portal-links:
     get:
       description: This endpoint fetches multiple portal links
       operationId: LoadPortalLinksPaged
       parameters:
-        - description: Project ID
-          in: path
-          name: projectID
-          required: true
-          schema:
-            type: string
-        - in: query
-          name: direction
-          schema:
-            enum:
-              - next
-              - prev
-            type: string
-          x-enum-varnames:
-            - Next
-            - Prev
-        - description: A pagination cursor to fetch the next page of a list
-          in: query
-          name: next_page_cursor
-          schema:
-            type: string
-        - description: The owner ID of the endpoint
-          in: query
-          name: ownerId
-          schema:
-            type: string
-        - description: The number of items to return per page
-          in: query
-          name: perPage
-          schema:
-            type: integer
-        - description: A pagination cursor to fetch the previous page of a list
-          in: query
-          name: prev_page_cursor
-          schema:
-            type: string
-        - description: The name of the endpoint
-          in: query
-          name: q
-          schema:
-            type: string
-        - description: Sort order, values are `ASC` or `DESC`, defaults to `DESC`
-          in: query
-          name: sort
-          schema:
-            type: string
+      - description: Project ID
+        in: path
+        name: projectID
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: direction
+        schema:
+          enum:
+          - next
+          - prev
+          type: string
+        x-enum-varnames:
+        - Next
+        - Prev
+      - description: A pagination cursor to fetch the next page of a list
+        in: query
+        name: next_page_cursor
+        schema:
+          type: string
+      - description: The owner ID of the endpoint
+        in: query
+        name: ownerId
+        schema:
+          type: string
+      - description: The number of items to return per page
+        in: query
+        name: perPage
+        schema:
+          type: integer
+      - description: A pagination cursor to fetch the previous page of a list
+        in: query
+        name: prev_page_cursor
+        schema:
+          type: string
+      - description: The name of the endpoint
+        in: query
+        name: q
+        schema:
+          type: string
+      - description: Sort order, values are `ASC` or `DESC`, defaults to `DESC`
+        in: query
+        name: sort
+        schema:
+          type: string
       responses:
         "200":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        allOf:
-                          - $ref: '#/components/schemas/models.PagedResponse'
-                          - properties:
-                              content:
-                                items:
-                                  $ref: '#/components/schemas/models.PortalLinkResponse'
-                                type: array
-                            type: object
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      allOf:
+                      - $ref: '#/components/schemas/models.PagedResponse'
+                      - properties:
+                          content:
+                            items:
+                              $ref: '#/components/schemas/models.PortalLinkResponse'
+                            type: array
+                        type: object
+                  type: object
           description: OK
         "400":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Not Found
       security:
-        - ApiKeyAuth: []
+      - ApiKeyAuth: []
       summary: List all portal links
       tags:
-        - Portal Links
+      - Portal Links
     post:
       description: This endpoint creates a portal link
       operationId: CreatePortalLink
       parameters:
-        - description: Project ID
-          in: path
-          name: projectID
-          required: true
-          schema:
-            type: string
+      - description: Project ID
+        in: path
+        name: projectID
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -3736,138 +3773,138 @@ paths:
         required: true
         x-originalParamName: portallink
       responses:
-        "200":
+        "201":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/models.PortalLinkResponse'
-                    type: object
-          description: OK
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/models.PortalLinkResponse'
+                  type: object
+          description: Created
         "400":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Not Found
       security:
-        - ApiKeyAuth: []
+      - ApiKeyAuth: []
       summary: Create a portal link
       tags:
-        - Portal Links
+      - Portal Links
   /v1/projects/{projectID}/portal-links/{portalLinkID}:
     get:
       description: This endpoint retrieves a portal link by its id.
       operationId: GetPortalLink
       parameters:
-        - description: Project ID
-          in: path
-          name: projectID
-          required: true
-          schema:
-            type: string
-        - description: portal link id
-          in: path
-          name: portalLinkID
-          required: true
-          schema:
-            type: string
+      - description: Project ID
+        in: path
+        name: projectID
+        required: true
+        schema:
+          type: string
+      - description: portal link id
+        in: path
+        name: portalLinkID
+        required: true
+        schema:
+          type: string
       responses:
         "200":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/models.PortalLinkResponse'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/models.PortalLinkResponse'
+                  type: object
           description: OK
         "400":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Not Found
       security:
-        - ApiKeyAuth: []
+      - ApiKeyAuth: []
       summary: Retrieve a portal link
       tags:
-        - Portal Links
+      - Portal Links
     put:
       description: This endpoint updates a portal link
       operationId: UpdatePortalLink
       parameters:
-        - description: Project ID
-          in: path
-          name: projectID
-          required: true
-          schema:
-            type: string
-        - description: portal link id
-          in: path
-          name: portalLinkID
-          required: true
-          schema:
-            type: string
+      - description: Project ID
+        in: path
+        name: projectID
+        required: true
+        schema:
+          type: string
+      - description: portal link id
+        in: path
+        name: portalLinkID
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -3877,240 +3914,240 @@ paths:
         required: true
         x-originalParamName: portallink
       responses:
-        "200":
+        "202":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/models.PortalLinkResponse'
-                    type: object
-          description: OK
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/models.PortalLinkResponse'
+                  type: object
+          description: Accepted
         "400":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Not Found
       security:
-        - ApiKeyAuth: []
+      - ApiKeyAuth: []
       summary: Update a portal link
       tags:
-        - Portal Links
+      - Portal Links
   /v1/projects/{projectID}/portal-links/{portalLinkID}/revoke:
     put:
       description: This endpoint revokes a portal link
       operationId: RevokePortalLink
       parameters:
-        - description: Project ID
-          in: path
-          name: projectID
-          required: true
-          schema:
-            type: string
-        - description: portal link id
-          in: path
-          name: portalLinkID
-          required: true
-          schema:
-            type: string
+      - description: Project ID
+        in: path
+        name: projectID
+        required: true
+        schema:
+          type: string
+      - description: portal link id
+        in: path
+        name: portalLinkID
+        required: true
+        schema:
+          type: string
       responses:
         "200":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: OK
         "400":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Not Found
       security:
-        - ApiKeyAuth: []
+      - ApiKeyAuth: []
       summary: Revoke a portal link
       tags:
-        - Portal Links
+      - Portal Links
   /v1/projects/{projectID}/sources:
     get:
       description: This endpoint fetches multiple sources
       operationId: LoadSourcesPaged
       parameters:
-        - description: Project ID
-          in: path
-          name: projectID
-          required: true
-          schema:
-            type: string
-        - in: query
-          name: direction
-          schema:
-            enum:
-              - next
-              - prev
-            type: string
-          x-enum-varnames:
-            - Next
-            - Prev
-        - description: A pagination cursor to fetch the next page of a list
-          in: query
-          name: next_page_cursor
-          schema:
-            type: string
-        - description: The number of items to return per page
-          in: query
-          name: perPage
-          schema:
-            type: integer
-        - description: A pagination cursor to fetch the previous page of a list
-          in: query
-          name: prev_page_cursor
-          schema:
-            type: string
-        - description: The custom source provider e.g. twitter, shopify
-          in: query
-          name: provider
-          schema:
-            type: string
-        - description: Sort order, values are `ASC` or `DESC`, defaults to `DESC`
-          in: query
-          name: sort
-          schema:
-            type: string
-        - description: The source type e.g. http, pub_sub
-          in: query
-          name: type
-          schema:
-            type: string
+      - description: Project ID
+        in: path
+        name: projectID
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: direction
+        schema:
+          enum:
+          - next
+          - prev
+          type: string
+        x-enum-varnames:
+        - Next
+        - Prev
+      - description: A pagination cursor to fetch the next page of a list
+        in: query
+        name: next_page_cursor
+        schema:
+          type: string
+      - description: The number of items to return per page
+        in: query
+        name: perPage
+        schema:
+          type: integer
+      - description: A pagination cursor to fetch the previous page of a list
+        in: query
+        name: prev_page_cursor
+        schema:
+          type: string
+      - description: The custom source provider e.g. twitter, shopify
+        in: query
+        name: provider
+        schema:
+          type: string
+      - description: Sort order, values are `ASC` or `DESC`, defaults to `DESC`
+        in: query
+        name: sort
+        schema:
+          type: string
+      - description: The source type e.g. http, pub_sub
+        in: query
+        name: type
+        schema:
+          type: string
       responses:
         "200":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        allOf:
-                          - $ref: '#/components/schemas/models.PagedResponse'
-                          - properties:
-                              content:
-                                items:
-                                  $ref: '#/components/schemas/models.SourceResponse'
-                                type: array
-                            type: object
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      allOf:
+                      - $ref: '#/components/schemas/models.PagedResponse'
+                      - properties:
+                          content:
+                            items:
+                              $ref: '#/components/schemas/models.SourceResponse'
+                            type: array
+                        type: object
+                  type: object
           description: OK
         "400":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Not Found
       security:
-        - ApiKeyAuth: []
+      - ApiKeyAuth: []
       summary: List all sources
       tags:
-        - Sources
+      - Sources
     post:
       description: This endpoint creates a source
       operationId: CreateSource
       parameters:
-        - description: Project ID
-          in: path
-          name: projectID
-          required: true
-          schema:
-            type: string
+      - description: Project ID
+        in: path
+        name: projectID
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -4120,204 +4157,204 @@ paths:
         required: true
         x-originalParamName: source
       responses:
-        "200":
+        "201":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/models.SourceResponse'
-                    type: object
-          description: OK
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/models.SourceResponse'
+                  type: object
+          description: Created
         "400":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Not Found
       security:
-        - ApiKeyAuth: []
+      - ApiKeyAuth: []
       summary: Create a source
       tags:
-        - Sources
+      - Sources
   /v1/projects/{projectID}/sources/{sourceID}:
     delete:
       description: This endpoint deletes a source
       operationId: DeleteSource
       parameters:
-        - description: Project ID
-          in: path
-          name: projectID
-          required: true
-          schema:
-            type: string
-        - description: source id
-          in: path
-          name: sourceID
-          required: true
-          schema:
-            type: string
+      - description: Project ID
+        in: path
+        name: projectID
+        required: true
+        schema:
+          type: string
+      - description: source id
+        in: path
+        name: sourceID
+        required: true
+        schema:
+          type: string
       responses:
         "200":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: OK
         "400":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Not Found
       security:
-        - ApiKeyAuth: []
+      - ApiKeyAuth: []
       summary: Delete a source
       tags:
-        - Sources
+      - Sources
     get:
       description: This endpoint retrieves a source by its id
       operationId: GetSource
       parameters:
-        - description: Project ID
-          in: path
-          name: projectID
-          required: true
-          schema:
-            type: string
-        - description: Source ID
-          in: path
-          name: sourceID
-          required: true
-          schema:
-            type: string
+      - description: Project ID
+        in: path
+        name: projectID
+        required: true
+        schema:
+          type: string
+      - description: Source ID
+        in: path
+        name: sourceID
+        required: true
+        schema:
+          type: string
       responses:
         "200":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/models.SourceResponse'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/models.SourceResponse'
+                  type: object
           description: OK
         "400":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Not Found
       security:
-        - ApiKeyAuth: []
+      - ApiKeyAuth: []
       summary: Retrieve a source
       tags:
-        - Sources
+      - Sources
     put:
       description: This endpoint updates a source
       operationId: UpdateSource
       parameters:
-        - description: Project ID
-          in: path
-          name: projectID
-          required: true
-          schema:
-            type: string
-        - description: source id
-          in: path
-          name: sourceID
-          required: true
-          schema:
-            type: string
+      - description: Project ID
+        in: path
+        name: projectID
+        required: true
+        schema:
+          type: string
+      - description: source id
+        in: path
+        name: sourceID
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -4327,170 +4364,175 @@ paths:
         required: true
         x-originalParamName: source
       responses:
-        "200":
+        "202":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/models.SourceResponse'
-                    type: object
-          description: OK
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/models.SourceResponse'
+                  type: object
+          description: Accepted
         "400":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Not Found
       security:
-        - ApiKeyAuth: []
+      - ApiKeyAuth: []
       summary: Update a source
       tags:
-        - Sources
+      - Sources
   /v1/projects/{projectID}/subscriptions:
     get:
       description: This endpoint fetches all the subscriptions
       operationId: GetSubscriptions
       parameters:
-        - description: Project ID
-          in: path
-          name: projectID
-          required: true
-          schema:
+      - description: Project ID
+        in: path
+        name: projectID
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: direction
+        schema:
+          enum:
+          - next
+          - prev
+          type: string
+        x-enum-varnames:
+        - Next
+        - Prev
+      - description: A list of endpointIDs to filter by
+        in: query
+        name: endpointId
+        schema:
+          items:
             type: string
-        - in: query
-          name: direction
-          schema:
-            enum:
-              - next
-              - prev
-            type: string
-          x-enum-varnames:
-            - Next
-            - Prev
-        - description: A list of endpointIDs to filter by
-          in: query
-          name: endpointId
-          schema:
-            items:
-              type: string
-            type: array
-        - description: A pagination cursor to fetch the next page of a list
-          in: query
-          name: next_page_cursor
-          schema:
-            type: string
-        - description: The number of items to return per page
-          in: query
-          name: perPage
-          schema:
-            type: integer
-        - description: A pagination cursor to fetch the previous page of a list
-          in: query
-          name: prev_page_cursor
-          schema:
-            type: string
-        - description: Sort order, values are `ASC` or `DESC`, defaults to `DESC`
-          in: query
-          name: sort
-          schema:
-            type: string
+          type: array
+      - description: Subscription name to filter by
+        in: query
+        name: name
+        schema:
+          type: string
+      - description: A pagination cursor to fetch the next page of a list
+        in: query
+        name: next_page_cursor
+        schema:
+          type: string
+      - description: The number of items to return per page
+        in: query
+        name: perPage
+        schema:
+          type: integer
+      - description: A pagination cursor to fetch the previous page of a list
+        in: query
+        name: prev_page_cursor
+        schema:
+          type: string
+      - description: Sort order, values are `ASC` or `DESC`, defaults to `DESC`
+        in: query
+        name: sort
+        schema:
+          type: string
       responses:
         "200":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        allOf:
-                          - $ref: '#/components/schemas/models.PagedResponse'
-                          - properties:
-                              content:
-                                items:
-                                  $ref: '#/components/schemas/models.SubscriptionResponse'
-                                type: array
-                            type: object
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      allOf:
+                      - $ref: '#/components/schemas/models.PagedResponse'
+                      - properties:
+                          content:
+                            items:
+                              $ref: '#/components/schemas/models.SubscriptionResponse'
+                            type: array
+                        type: object
+                  type: object
           description: OK
         "400":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Not Found
       security:
-        - ApiKeyAuth: []
+      - ApiKeyAuth: []
       summary: List all subscriptions
       tags:
-        - Subscriptions
+      - Subscriptions
     post:
       description: This endpoint creates a subscriptions
       operationId: CreateSubscription
       parameters:
-        - description: Project ID
-          in: path
-          name: projectID
-          required: true
-          schema:
-            type: string
+      - description: Project ID
+        in: path
+        name: projectID
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -4500,204 +4542,204 @@ paths:
         required: true
         x-originalParamName: subscription
       responses:
-        "200":
+        "201":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/models.SubscriptionResponse'
-                    type: object
-          description: OK
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/models.SubscriptionResponse'
+                  type: object
+          description: Created
         "400":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Not Found
       security:
-        - ApiKeyAuth: []
+      - ApiKeyAuth: []
       summary: Create a subscription
       tags:
-        - Subscriptions
+      - Subscriptions
   /v1/projects/{projectID}/subscriptions/{subscriptionID}:
     delete:
       description: This endpoint deletes a subscription
       operationId: DeleteSubscription
       parameters:
-        - description: Project ID
-          in: path
-          name: projectID
-          required: true
-          schema:
-            type: string
-        - description: subscription id
-          in: path
-          name: subscriptionID
-          required: true
-          schema:
-            type: string
+      - description: Project ID
+        in: path
+        name: projectID
+        required: true
+        schema:
+          type: string
+      - description: subscription id
+        in: path
+        name: subscriptionID
+        required: true
+        schema:
+          type: string
       responses:
         "200":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: OK
         "400":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Not Found
       security:
-        - ApiKeyAuth: []
+      - ApiKeyAuth: []
       summary: Delete subscription
       tags:
-        - Subscriptions
+      - Subscriptions
     get:
       description: This endpoint retrieves a single subscription
       operationId: GetSubscription
       parameters:
-        - description: Project ID
-          in: path
-          name: projectID
-          required: true
-          schema:
-            type: string
-        - description: subscription id
-          in: path
-          name: subscriptionID
-          required: true
-          schema:
-            type: string
+      - description: Project ID
+        in: path
+        name: projectID
+        required: true
+        schema:
+          type: string
+      - description: subscription id
+        in: path
+        name: subscriptionID
+        required: true
+        schema:
+          type: string
       responses:
         "200":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/models.SubscriptionResponse'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/models.SubscriptionResponse'
+                  type: object
           description: OK
         "400":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Not Found
       security:
-        - ApiKeyAuth: []
+      - ApiKeyAuth: []
       summary: Retrieve a subscription
       tags:
-        - Subscriptions
+      - Subscriptions
     put:
       description: This endpoint updates a subscription
       operationId: UpdateSubscription
       parameters:
-        - description: Project ID
-          in: path
-          name: projectID
-          required: true
-          schema:
-            type: string
-        - description: subscription id
-          in: path
-          name: subscriptionID
-          required: true
-          schema:
-            type: string
+      - description: Project ID
+        in: path
+        name: projectID
+        required: true
+        schema:
+          type: string
+      - description: subscription id
+        in: path
+        name: subscriptionID
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -4707,67 +4749,67 @@ paths:
         required: true
         x-originalParamName: subscription
       responses:
-        "200":
+        "202":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/models.SubscriptionResponse'
-                    type: object
-          description: OK
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/models.SubscriptionResponse'
+                  type: object
+          description: Accepted
         "400":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Not Found
       security:
-        - ApiKeyAuth: []
+      - ApiKeyAuth: []
       summary: Update a subscription
       tags:
-        - Subscriptions
+      - Subscriptions
   /v1/projects/{projectID}/subscriptions/test_filter:
     post:
       description: This endpoint validates that a filter will match a certain payload
         structure.
       operationId: TestSubscriptionFilter
       parameters:
-        - description: Project ID
-          in: path
-          name: projectID
-          required: true
-          schema:
-            type: string
+      - description: Project ID
+        in: path
+        name: projectID
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -4782,66 +4824,66 @@ paths:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        type: boolean
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      type: boolean
+                  type: object
           description: OK
         "400":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Not Found
       security:
-        - ApiKeyAuth: []
+      - ApiKeyAuth: []
       summary: Validate subscription filter
       tags:
-        - Subscriptions
+      - Subscriptions
   /v1/projects/{projectID}/subscriptions/test_function:
     post:
       description: This endpoint test runs a transform function against a payload.
       operationId: TestSubscriptionFunction
       parameters:
-        - description: Project ID
-          in: path
-          name: projectID
-          required: true
-          schema:
-            type: string
+      - description: Project ID
+        in: path
+        name: projectID
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/models.TestWebhookFunction'
+              $ref: '#/components/schemas/models.FunctionRequest'
         description: Function Details
         required: true
         x-originalParamName: filter
@@ -4851,70 +4893,70 @@ paths:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/models.SubscriptionFunctionResponse'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/models.FunctionResponse'
+                  type: object
           description: OK
         "400":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Bad Request
         "401":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Unauthorized
         "404":
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/util.ServerResponse'
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/handlers.Stub'
-                    type: object
+                - $ref: '#/components/schemas/util.ServerResponse'
+                - properties:
+                    data:
+                      $ref: '#/components/schemas/handlers.Stub'
+                  type: object
           description: Not Found
       security:
-        - ApiKeyAuth: []
+      - ApiKeyAuth: []
       summary: Test a subscription function
       tags:
-        - Subscriptions
+      - Subscriptions
 servers:
-  - url: https://dashboard.getconvoy.io/api
+- url: https://dashboard.getconvoy.io/api
 tags:
-  - description: Organisation related APIs
-    name: Organisations
-  - description: Subscription related APIs
-    name: Subscriptions
-  - description: Endpoint related APIs
-    name: Endpoints
-  - description: Event related APIs
-    name: Events
-  - description: Source related APIs
-    name: Sources
-  - description: EventDelivery related APIs
-    name: Event Deliveries
-  - description: Delivery Attempt related APIs
-    name: Delivery Attempts
-  - description: Project related APIs
-    name: Projects
-  - description: Portal Links related APIs
-    name: Portal Links
-  - description: Meta Events related APIs
-    name: Meta Events
+- description: Organisation related APIs
+  name: Organisations
+- description: Subscription related APIs
+  name: Subscriptions
+- description: Endpoint related APIs
+  name: Endpoints
+- description: Event related APIs
+  name: Events
+- description: Source related APIs
+  name: Sources
+- description: EventDelivery related APIs
+  name: Event Deliveries
+- description: Delivery Attempt related APIs
+  name: Delivery Attempts
+- description: Project related APIs
+  name: Projects
+- description: Portal Links related APIs
+  name: Portal Links
+- description: Meta Events related APIs
+  name: Meta Events
