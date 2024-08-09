@@ -260,13 +260,16 @@ Here's the full configuration reference
     // to otel, then the object needs to be fully configured.
     "otel": {
 
-      // OTel trace generation sample rate. 
+      // OTel trace generation sample rate. The environment variable
+      // equivalent is CONVOY_OTEL_SAMPLE_RATE
       "sample_rate": 1.0,
 
       // OTel backend URL. Only grpc ingestion urls are supported. 
+      // The environment variable equivalent is CONVOY_OTEL_SAMPLE_RATE
       "collector_url": "",
 
       // Specifies if server certs should be verified or not.
+      // The environment variable equivalent is CONVOY_OTEL_INSECURE_SKIP_VERIFY
       "insecure_skip_verify": true,
 
       // This is used to specify extra auth headers for specific backends. E.g.
