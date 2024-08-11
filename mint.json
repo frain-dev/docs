@@ -127,7 +127,8 @@
     {
       "group":"Cloud",
       "pages":[
-        "cloud/cloud-upgrade-policy"
+        "cloud/cloud-upgrade-policy",
+        "cloud/cloud-subscription-policy"
       ]
     },
     {
