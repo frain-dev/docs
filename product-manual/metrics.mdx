@@ -10,18 +10,18 @@ Convoy exports metrics about the state of events received and sent via Prometheu
 
 ## Enabling Metrics
 Metrics are currently in beta, and aren't enabled by default. To enable them, you need to
-- Add the experimental feature flag
-- Enable metrics using the env var `CONVOY_METRICS_ENABLED`
+- Enable the `prometheus` feature flag using `CONVOY_ENABLE_FEATURE_FLAG=prometheus`
 - Set the metrics backend env var `CONVOY_METRICS_BACKEND`
 
+Either one of the two code blocks below will work.
+
 ```shell enabling convoy metrics using flags
-convoy worker --metrics-backend=prometheus --feature-flag=experimental
+convoy worker --metrics-backend=prometheus --enable-feature-flag=prometheus
 ```
 
 ```shell enabling convoy metrics using env vars
-export CONVOY_METRICS_ENABLED=true
 export CONVOY_METRICS_BACKEND=prometheus
-convoy worker --feature-flag=experimental
+convoy worker --enable-feature-flag=prometheus
 ```
 
 ## Queue Metrics
@@ -43,3 +43,10 @@ convoy worker --feature-flag=experimental
 | `convoy_ingest_success`     | Counter   | Total number of events successfully ingested and consumed |
 | `convoy_ingest_error`       | Counter   | Total number of errors during event ingestion             |
 | `convoy_end_to_end_latency` | Histogram | Total time (in seconds) an event spends in Convoy.        |
+
+
+> [!WARNING]
+> Feature flags in Convoy were reimplemented on a per-feature basis.\
+> The following flags/configs are no longer valid:
+> * `--feature-flag=experimental`
+> * `export CONVOY_FEATURE_FLAG=1`
