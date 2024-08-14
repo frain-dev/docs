@@ -135,7 +135,7 @@
       "pages":[
         "resources/glossary",
         "resources/telemetry",
-        "resources/release-process"
+        "resources/feature-flags"
       ]
     },
     {
