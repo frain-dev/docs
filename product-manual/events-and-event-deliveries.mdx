@@ -138,7 +138,7 @@ An event delivery can have any of the states below:
 -  `Success`: In this state, the event delivery delivered successfully. Here, the `Retry` button becomes `Force Retry`. This is used to retry a successful event in case of a false positive.
 -  `Retry`: In this state, the event delivery previously failed and the automatic retries have kicked in. Here, Convoy will continue to retry till the max attempts is reached.
 -  `Failed`: In this state, the event delivery has reached the maximum number of automatic retries and failed to deliver the event or the endpoint failed to acknowledge delivery. Here, the `Retry` button becomes to active to trigger manual retries.
--  `Discarded`: In this state, the endpoint has been set to `inactive`, so Convoy did not try to process events to the endpoint at all. See [here](https://getconvoy.io/docs/manual/endpoints#endpoint-state) on re-activating the endpoint.
+-  `Discarded`: In this state, the endpoint has been set to `inactive`, so Convoy did not try to process events to the endpoint at all. See [here](https://docs.getconvoy.io/product-manual/endpoints#endpoint-state) on re-activating the endpoint.
 
 Event deliveries can be viewed on the **Events Deliveries** page below:
 
