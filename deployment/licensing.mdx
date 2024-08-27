@@ -1,0 +1,28 @@
+---
+title: Convoy Licenses
+'og:title': Install Convoy with a License Key
+'og:description': Install Convoy with a License Key
+'twitter:description': Install Convoy with a License Key
+'twitter:url': https://docs.getconvoy.io/deployment/install-convoy/licensing
+---
+
+Convoy has two license tiers, namely `Business` and `Enterprise`. This documentation will guide you on how to purchase a license, and configure the license key on your convoy instance(s)
+Our cloud platform instances are served with the enterprise tier. The pricing of all tiers can be found (here)[https://getconvoy.io/pricing].
+environment variables, cli flags or config file.
+
+
+## Prerequisites
+You will need to register on our (Saas)[https://cloud.getconvoy.io]. After registering you must add a payment method and then navigate to the `Licenses` tab using the sidebar.
+There you can select `Create a new License` and follow the steps. You will receive the license key in your mail not too long after.
+To setup your convoy instances to use this license key, you must add to your instance configuration either by CLI flag, environment variables or config file.
+
+```
+Environment Variable: CONVOY_LICENSE_KEY
+CLI flag: --license-key
+Config file: {
+        license_key: "BE32N-32..."
+}
+```
+
+## Running the instance
+After adding the license key config, you're good to go. Run the instance as you normally would and now you will access to the features of your license tier.
