@@ -75,7 +75,7 @@ The Convoy CLI can be installed directly from your package manager or by buildin
 To view the list of the available commands at any time, just run `convoy` in your terminal with no arguments:
 
 
-```json terminal 
+```txt terminal
 $ convoy
 High Performance Webhooks Gateway
 
@@ -127,7 +127,7 @@ Command: `convoy ingest`
 
 #### Synopsis
 
-```json terminal
+```txt terminal
 $ convoy ingest --help
 Ingest webhook events from Pub/Sub streams
 
@@ -170,7 +170,7 @@ Command: `convoy bootstrap`
 
 #### Synopsis
 
-```json terminal
+```txt terminal
 $ convoy bootstrap --help
 bootstrap creates a new user account
 
@@ -219,7 +219,7 @@ Command: `convoy stream`
 #### Synopsis
 
 
-```json terminal
+```txt terminal
 $ convoy stream --help
 Start a websocket server to pipe events to a convoy cli instance
 
@@ -266,7 +266,7 @@ Command: `convoy migrate`
 
 #### Synopsis
 
-```json terminal
+```txt terminal
 $ convoy migrate --help
 Convoy migrations
 
@@ -317,7 +317,7 @@ Command: `convoy config`
 
 #### Synopsis
 
-```json terminal
+```txt terminal
 $ convoy config -h
 config outputs your instances computed configuration
 
@@ -361,7 +361,7 @@ Command: `convoy server`
 
 #### Synopsis
 
-```json terminal
+```txt terminal
 $ convoy server --help
 Start the HTTP server
 
@@ -467,7 +467,7 @@ Command: `convoy worker`
 #### Synopsis
 
 
-```json terminal
+```txt terminal
 $ convoy worker -h
 Start worker instance
 
@@ -528,6 +528,95 @@ This command requires all Global configurations to be set either through the CLI
 -  `--smtp-ssl`: This specifies if ssl should be used in the smtp protocol for sending emails.
 -  `--help`: Get help on the worker command.
 -  `--worker-port`: Specify the worker server’s port. Defaults to `5006` if not specified.
+-  `--mode`: The processing mode of the events' processor.
+
+
+### Agent
+
+Command: `convoy agent`
+
+```txt terminal
+$ convoy agent -h
+Start agent instance
+
+Usage:
+  Convoy agent [flags]
+
+Flags:
+      --agent-port uint32      Agent port
+      --consumers int          Size of the consumers pool. (default -1)
+  -h, --help                   help for agent
+      --ingest-port uint32     Ingest port
+      --interval int           the time interval, measured in seconds to update the in-memory store from the database (default 10)
+      --log-level string       scheduler log level
+      --mode string            Execution Mode (one of events, retry and default)
+      --smtp-from string       Sender email address
+      --smtp-password string   SMTP authentication password
+      --smtp-port uint32       SMTP Port
+      --smtp-provider string   SMTP provider
+      --smtp-reply-to string   Email address to reply to
+      --smtp-ssl               Enable SMTP SSL
+      --smtp-url string        SMTP provider URL
+      --smtp-username string   SMTP authentication username
+      --worker-port uint32     Worker port
+
+Global Flags:
+      --config string                         Configuration file for convoy (default "./convoy.json")
+      --db-database string                    Database Database
+      --db-host string                        Database Host
+      --db-options string                     Database Options
+      --db-password string                    Database Password
+      --db-port int                           Database Port
+      --db-scheme string                      Database Scheme
+      --db-type string                        Database provider
+      --db-username string                    Database Username
+      --enable-feature-flag strings           List of feature flags to enable e.g. "full-text-search,prometheus"
+      --enable-profiling                      Enable profiling and exporting profile data to pyroscope
+      --max-retry-seconds uint                Max retry seconds exponential backoff (default 7200)
+      --metrics-backend string                Metrics backend e.g. prometheus. ('prometheus' feature flag required (default "prometheus")
+      --metrics-prometheus-sample-time uint   Prometheus metrics sample time (default 5)
+      --otel-auth-header-name string          OTel backend auth header name
+      --otel-auth-header-value string         OTel backend auth header value
+      --otel-collector-url string             OTel collector URL
+      --otel-sample-rate float                OTel tracing sample rate (default 1)
+      --redis-database string                 Redis database
+      --redis-host string                     Redis Host
+      --redis-password string                 Redis Password
+      --redis-port int                        Redis Port
+      --redis-scheme string                   Redis Scheme
+      --redis-type string                     Redis provider
+      --redis-username string                 Redis Username
+      --retention-policy string               SMTP Port
+      --retention-policy-enabled              SMTP Port
+      --sentry-dsn string                     Sentry backend dsn
+      --tracer-type string                    Tracer backend, e.g. sentry, datadog or otel
+```
+
+#### Description
+
+The worker command is used when running convoy in the microservices' mode.
+It does the job by simply reading event deliveries of the queue and passing them to consumers to process.
+It is possible to run multiple worker processes to scale up your workers.
+
+This command requires all Global configurations to be set either through the CLI or the configuration file.
+This is because the workers need to connect to both the database and the queues to perform its duty.
+
+#### Command Flags
+
+-  `--smtp-provider`: This flag specifies the name of the SMTP provider. While this isn’t necessary for smtp configuration, it is used to provider rich log.
+-  `--smtp-from`: This specifies the sender’s email address when sending notification emails.
+-  `--smtp-url`: This specifies the smtp servers’ url. You should look up the providers’ documentation on how to specify this flag.
+-  `--smtp-port`: This specifies the smtp servers’ port. You should look up the providers’ documentation on how to specify this flag.
+-  `--smtp-reply-to`: This specifies the email to use as reply-to in notification emails sent.
+-  `--smtp-username`: This specifies the username for smtp authentication. You should look up the providers’ documentation on how to specify this flag.
+-  `--smtp-password`: This specifies the password for smtp authentication. You should look up the providers’ documentation on how to specify this flag.
+-  `--smtp-ssl`: This specifies if ssl should be used in the smtp protocol for sending emails.
+-  `--help`: Get help on the worker command.
+-  `--agent-port`: Specify the agent server’s port. Defaults to `5007` if not specified.
+-  `--interval`: The time in seconds to poll the database for changes in the source configuration.
+-  `--mode`: The processing mode of the events' processor.
+
+
 
 ### Retry
 
@@ -536,7 +625,7 @@ Command: `convoy retry`
 #### Synopsis
 
 
-```json terminal
+```txt terminal
 $ convoy retry -h
 retry event deliveries with a particular status in a timeframe
 
