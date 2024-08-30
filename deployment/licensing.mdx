@@ -6,10 +6,9 @@ title: Convoy Licenses
 'twitter:url': https://docs.getconvoy.io/deployment/install-convoy/licensing
 ---
 
-Convoy has two license tiers, namely `Business` and `Enterprise`. This documentation will guide you on how to purchase a license, and configure the license key on your convoy instance(s)
-Our cloud platform instances are served with the enterprise tier. The pricing of all tiers can be found (here)[https://getconvoy.io/pricing].
+Convoy has three license tiers, namely `Community` which is the free plan, `Business` and `Enterprise`. This documentation will guide you on how to purchase a license,
+and configure the license key on your convoy instance(s). Our cloud platform instances are served with the enterprise tier. The pricing of all tiers can be found (here)[https://getconvoy.io/pricing].
 environment variables, cli flags or config file.
-
 
 ## Prerequisites
 You will need to register on our (Saas)[https://cloud.getconvoy.io]. After registering you must add a payment method and then navigate to the `Licenses` tab using the sidebar.
@@ -26,3 +25,10 @@ Config file: {
 
 ## Running the instance
 After adding the license key config, you're good to go. Run the instance as you normally would and now you will access to the features of your license tier.
+
+## Upgrades
+When you upgrade your license you will lose no features that you already have and in addition gain the extra features your new license provides.
+
+## Downgrades
+When you downgrade you will lose access to the paid features your license provided. If you downgrade to the community plan and you have more projects than the
+community plan allows(2 projects), convoy will freeze all your projects except 2 from write operations e.g create event, create endpoint, create source etc.
