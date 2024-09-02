@@ -26,7 +26,36 @@ Follow the instructions below to create a license key:
         <Frame>![retrieve license key](/images/license-key-ready.png)</Frame>
     </Step>
     <Step title="Going back to Convoy">
-        Supply your `License key`.
+        Supply your `License key` either by config file, cli flag or environment variable.
+
+        <Step title="License key in config file" stepNumber="a">
+            ```json
+            {
+                "database": {
+                    ....
+               },
+                "redis": {
+                    ...
+                },
+                "license_key": "",
+                "server": {
+                    .....
+                }
+            }
+            ```
+        </Step>
+
+        <Step title="License key in cli flag" stepNumber="b">
+            ```shell
+            $ convoy server --license-key="BE4334..."
+            ```
+        </Step>
+
+        <Step title="License key in environment variable" stepNumber="c">
+            ```
+            $ CONVOY_LICENSE_KEY="B20329...." convoy server
+            ```
+        </Step>
     </Step>
 </Steps>
 
