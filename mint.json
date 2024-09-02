@@ -59,6 +59,7 @@
       "pages":[
         "deployment/architecture",
         "deployment/configuration",
+        "deployment/licensing",
         {
           "group":"Install Convoy",
           "pages":[
