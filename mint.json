@@ -127,7 +127,14 @@
     {
       "group":"Cloud",
       "pages":[
-        "cloud/cloud-upgrade-policy"
+        "cloud/cloud-upgrade-policy",
+        "cloud/cloud-subscription-policy"
+      ]
+    },
+    {
+      "group":"Business & Enterprise",
+      "pages":[
+        "business_and_enterprise/licensing"
       ]
     },
     {
