@@ -15,6 +15,25 @@ title: Releases
 - Added authentication to metrics and queue monitoring routes.
 - Fixed various bugs, including issues with positional array filter, count & batch retry queries, and migration problems.
 
+### Breaking changes
+In this release we have gated a number of features behind a license. If you utilise them, these will features will cease to work until you provide
+a license key to your convoy instance, see [here](../business_and_enterprise/licensing) for information on how to purchase a license key. <br/>
+Going forward, you will need a license to:
+- Create multiple organisations.
+- Create multiple projects. Without a license, you can only have 2 projects. And if you already have more than 2, [here's](../business_and_enterprise/licensing#downgrades) what will happen in your instance.
+- Add multiple users.
+- Search Event payloads.
+- Use a forward proxy.
+- Collect prometheus metrics, both general request metrics & convoy specific event metrics.
+- Use custom http timeout for connections to your endpoints.
+- Get notified about endpoint failures.
+- Use fine-grained subscriptions filters.
+- Use JS transformation functions.
+- View the queue monitoring dashboard.
+- Access Portal links.
+- Tune your consumer pool size.
+
+
 ### Patches
 
 The changelogs for this minor release version and any maintenance versions are listed below.
