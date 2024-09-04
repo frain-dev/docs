@@ -1,8 +1,8 @@
 ---
 title: Configuration
 'og:title': Convoy Configuration
-'og:description': Convoy can be configured using CL Flags, Environment Variables or a configuration file.
-'twitter:description': Convoy can be configured using CL Flags, Environment Variables or a configuration file.
+'og:description': Convoy can be configured using CLI Flags, Environment Variables or a configuration file.
+'twitter:description': Convoy can be configured using CLI Flags, Environment Variables or a configuration file.
 'twitter:url': https://docs.getconvoy.io/deployment/configuration
 ---
 
@@ -235,9 +235,10 @@ Here's the full configuration reference
   // See the storage_policy config to configure where purged events will be stored.
   "retention_policy": {
       // Specify the period of time to go back before purging events, events within the specifed time period will not be purged.
+      // The environment variable equivalent is CONVOY_RETENTION_POLICY
       "policy": "720h",
 
-      // Specify whether the retention policy job should run.
+      // Specify whether the retention policy job should run. The environment variable equivalent is CONVOY_RETENTION_POLICY_ENABLED
       "enabled": false,
   }
 
