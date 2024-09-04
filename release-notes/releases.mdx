@@ -1,7 +1,7 @@
 ---
 title: Releases
 ---
-# 24.8.x
+# v24.8.x
 
 ### Release Highlights
 
@@ -20,7 +20,10 @@ In this release we have gated a number of features behind a license. If you util
 a license key to your convoy instance, see [here](../business_and_enterprise/licensing) for information on how to purchase a license key. <br/>
 Going forward, you will need a license to:
 - Create multiple organisations.
-- Create multiple projects. Without a license, you can only have 2 projects. And if you already have more than 2, [here's](../business_and_enterprise/licensing#downgrades) what will happen in your instance.
+- Create multiple projects.
+Without a license, you can only have two projects.
+And if you already have more than two,
+[here's](../business_and_enterprise/licensing#downgrades) what will happen in your instance.
 - Add multiple users.
 - Search Event payloads.
 - Use a forward proxy.
@@ -33,6 +36,11 @@ Going forward, you will need a license to:
 - Access Portal links.
 - Tune your consumer pool size.
 
+### Upgrading
+To upgrade from `v24.6.x` to `v24.8.x`:
+
+- Update the docker image from `docker.cloudsmith.io/convoy/convoy/frain-dev/convoy` to `getconvoy/convoy`
+<Note>**You need to switch back to the old image to downgrade**</Note>
 
 ### Patches
 
@@ -40,7 +48,7 @@ The changelogs for this minor release version and any maintenance versions are l
 
 - [Convoy v24.8.1](https://github.com/frain-dev/convoy/releases/tag/v24.8.1)
 
-# 24.6.x
+# v24.6.x
 
 ### Release Highlights
 
@@ -61,7 +69,7 @@ The changelogs for this minor release version and any maintenance versions are l
 - [Convoy v24.6.2](https://github.com/frain-dev/convoy/releases/tag/v24.6.2)
 - [Convoy v24.6.1](https://github.com/frain-dev/convoy/releases/tag/v24.6.1)
 
-# 24.5.x
+# v24.5.x
 
 ### Release Highlights
 
