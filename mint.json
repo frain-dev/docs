@@ -134,8 +134,8 @@
     {
       "group":"Business & Enterprise",
       "pages":[
-        "business_and_enterprise/licensing",
-	"business_and_enterprise/paid_features"
+        "business-and-enterprise/licensing",
+	"business-and-enterprise/paid-features"
       ]
     },
     {
