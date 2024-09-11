@@ -38,6 +38,39 @@ Upgrade the chart:
 helm upgrade --values values.yaml convoy convoy/convoy -n convoy
 ```
 
+## Upgrading to v24.8.x
+To upgrade to [v24.8.x](../../release-notes/releases#v24-8-x),
+you need to change both the image repository and the image tag values
+```yaml values.yml
+convoy:
+    tag: v24.8.1
+
+worker:
+  image:
+    repository: getconvoy/convoy
+    tag: v24.8.1
+
+ingest:
+  image:
+    repository: getconvoy/convoy
+    tag: v24.8.1
+
+stream:
+  image:
+    repository: getconvoy/convoy
+    tag: v24.8.1
+
+server:
+  image:
+    repository: getconvoy/convoy
+    tag: v24.8.1
+
+migrate:
+  image:
+    tag: v24.8.1
+    repository: getconvoy/convoy
+```
+
 ## ArgoCD Configuration
 Convoy uses helm hooks to trigger migrations every time the charts are installed or upgraded. These hooks alone won't work for an ArgoCD installation since they are not compatible.
 
