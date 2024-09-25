@@ -1,6 +1,22 @@
 ---
 title: Releases
 ---
+# 24.9.x
+
+### Release Highlights
+- RBAC renamed to multiplayer mode and put behind the license.
+- Setting the worker/agent execution mode can only be done using a license.
+- Added support for inbound webhooks that use urlencoded content type.
+- HTTP ingest now uses the instance ingest rate.
+- Endpoint authentication configuration is now visible on the dashboard.
+
+### Patches
+
+The changelogs for this minor release version and any maintenance versions are listed below.
+
+- [Convoy v24.9.2](https://github.com/frain-dev/convoy/releases/tag/v24.9.2)
+- [Convoy v24.9.1](https://github.com/frain-dev/convoy/releases/tag/v24.9.1)
+
 # v24.8.x
 
 ### Release Highlights
@@ -22,7 +38,7 @@ a license key. Read [here](/business-and-enterprise/licensing) to learn about al
 and [here](/business-and-enterprise/paid-features) to learn how to get a license key.
 
 ### Upgrading
-To upgrade from `v24.6.x` to `v24.8.x`:
+To upgrade from `v24.6.x` to `v24.8.x` and above:
 
 - **Docker**: Update the docker image from `docker.cloudsmith.io/convoy/convoy/frain-dev/convoy` to `getconvoy/convoy`.
 - **Kubernetes**: Update both the image repository and the image tag values to `getconvoy/convoy` and `v24.8.x` respectively.
