@@ -135,7 +135,7 @@
       "group":"Business & Enterprise",
       "pages":[
         "business-and-enterprise/licensing",
-	"business-and-enterprise/paid-features"
+	      "business-and-enterprise/paid-features"
       ]
     },
     {
@@ -144,7 +144,7 @@
         "resources/glossary",
         "resources/telemetry",
         "resources/feature-flags",
-	"resources/support-policy"
+	      "resources/support-policy"
       ]
     },
     {
@@ -183,6 +183,15 @@
         "api-reference/event-deliveries/force-retry-event-delivery",
         "api-reference/event-deliveries/retrieve-an-event-delivery",
         "api-reference/event-deliveries/retry-event-delivery"
+      ]
+    },
+    {
+      "group":"Event Types",
+      "pages":[
+        "api-reference/event-types/create-an-event-type",
+        "api-reference/event-types/update-an-event-type",
+        "api-reference/event-types/deprecate-an-event-type",
+        "api-reference/event-types/list-event-types"
       ]
     },
     {
