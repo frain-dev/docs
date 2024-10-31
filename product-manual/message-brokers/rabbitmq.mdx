@@ -78,7 +78,3 @@ Convoy provides two ways to ingest events from RabbitMQ:
 
 ## Things to Note
 - Each worker reads messages one-by-one from the queue, with acknowledgments processed per message.
-- Ingestion from RabbitMQ is rate-limited at 50 messages per second, configurable via the `CONVOY_INGEST_RATE` environment variable.
-
-
-
