@@ -189,10 +189,11 @@ Here's the full configuration reference
   "consumer_pool_size": 100,
 
   // [optional]
-  // This is enum flag used to enable access to experimental features. 
-  // The only supported value as of this writing is experimental. 
-  // The environment variable equivalent is CONVOY_FEATURE_FLAG.
-  "feature_flag": "experimental",
+  // This is used to enable experimental features. Check
+  // https://docs.getconvoy.io/resources/feature-flags for all the 
+  // supported values. The environment variable equivalent is 
+  // CONVOY_ENABLE_FEATURE_FLAG
+  "enable_feature_flag": [ "circuit-breaker" ],
 
   // [optional]
   // This is a boolean flag to configure profiling any Convoy component.
@@ -207,28 +208,28 @@ Here's the full configuration reference
 
     // Specify the smtp provider. The environment variable equivalent is
     // CONVOY_SMTP_PROVIDER.  
-		"provider": "sendgrid",
+    "provider": "sendgrid",
 
     // Specify the smtp URL. The environment variable equivalent is
     // CONVOY_SMTP_URL
-		"url": "smtp.sendgrid.net",
+    "url": "smtp.sendgrid.net",
 
     // Specify the smtp port. The environment variable equivalent is
     // CONVOY_SMTP_PORT
-		"port": 2525,
+    "port": 2525,
 
     // Specify the smtp username. The environment variable equivalent is
     // CONVOY_SMTP_USERNAME
-		"username": "apikey",
+    "username": "apikey",
 
     // Specify the smtp password. The environment variable equivalent is 
     // CONVOY_SMTP_PASSWORD
-		"password": "api-key-from-sendgrid",
+    "password": "api-key-from-sendgrid",
 
     // Specify the smtp from email. The environment variable equivalent is 
     // CONVOY_SMTP_FROM
-		"from": "[email protected]"
-	}
+    "from": "[email protected]"
+  }
 
   // [optional]
   // Specify the retention policy configurations for your convoy instance
@@ -391,8 +392,87 @@ Here's the full configuration reference
       // The default value is true.
       "enabled": true
     }
-
   }
+
+  // [optional]
+  // This is used to configure the server's rate limit. It defaults to 25 reqs/sec.
+  "api_rate_limit": 25
+
+  // [optional]
+  // This is used to configure the ingestion rate limit on the data plane. Internally, 
+  // it is a distributed rate limiter implemented on Redis to ensure consistent limits 
+  // across the cluster.
+  "instance_ingest_rate": 50
+
+  // [optional]
+  // This is used to control the agent's execution mode. The values can be either 
+  // default, retry and events.
+  "execution_mode": "retry"
+
+  // [optional]
+  // This is used to configure how we circuit break client endpoints.
+  "circuit_breaker": {
+
+    // This is the frequency of polling the database in seconds to calculate 
+    // an endpoint's error rate.
+    // The environment variable equivalent is CONVOY_CIRCUIT_BREAKER_SAMPLE_RATE.
+    "sample_rate": 10,
+
+    // This is the total amount of time in seconds wait in the half-open state 
+    // to enable the endpoint to recover.
+    // The environment variable equivalent is CONVOY_CIRCUIT_BREAKER_ERROR_TIMEOUT.
+    "error_timeout": 60, 
+
+    // This is the % number of failures in the observability window, before 
+    // we tripe the circuit.
+    // The environment variable equivalent is CONVOY_CIRCUIT_BREAKER_FAILURE_THRESHOLD.
+    "failure_threshold": 10,
+
+    // This is the total number of successes in the half-open state that'll 
+    // trigger the circuit back to a closed state. 
+    // The  environment variable equivalent is CONVOY_CIRCUIT_BREAKER_SUCCESS_THRESHOLD.
+    "success_threshold": 50, 
+
+    // This is the total number of requests an endpoint must have before 
+    // we begin calculating error rate.
+    // The environment variable equivalent is CONVOY_CIRCUIT_BREAKER_MINIMUM_REQUEST_COUNT.
+    "minimum_request_count": 15,
+
+    // This is the total time window to use in calculating the endpoint error rate.
+    // It is configured in minutes. 
+    // The environment variable equivalent is CONVOY_CIRCUIT_BREAKER_OBSERVABILITY_WINDOW.
+    "observability_window": 30,
+
+    // This is the total number of consecutive transitions to the open state 
+    // before we finally disable the endpoint. 
+    // The environment variable equivalent is CONVOY_CIRCUIT_BREAKER_CONSECUTIVE_FAILURE_THRESHOLD.
+    "consecutive_failure_threshold": 10 
+  }
+
+  // [optional]
+  // This configures a set of IP addresses that we can connect to. The goal 
+  // is to prevent SSRF.
+  "dispatcher": {
+    // This determines if the gateway accepts self-signed certificates.
+    // The equivalent environment variable is CONVOY_DISPATCHER_INSECURE_SKIP_VERIFY.
+    "insecure_skip_verify": false,
+
+    // This is used to configure the set of IP addresses we can connect to.
+    // The equivalent environment variable is CONVOY_DISPATCHER_ALLOW_LIST.
+    "allow_list": [ "0.0.0.0/0" ]
+
+    // This is used to configure the set of IP addresses that are blocked. 
+    // The equivalent environment variable is CONVOY_DISPATCHER_BLOCK_LIST.
+    "deny_list": [ "127.0.0.0/8", "169.254.169.254" ]
+  }
+
+  // [optional]
+  // This is the total time in seconds used to cap the exponential backoff
+  // retry algorithm. For example, if set to 7200, it means we will never 
+  // exceed 2 hours in retry delay.
+  // The equivalent environment variable is CONVOY_MAX_RETRY_SECONDS.
+  "max_retry_seconds": 2000
+
 }
 
 ```
