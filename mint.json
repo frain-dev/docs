@@ -265,6 +265,11 @@
       ]
     }
   ],
+  "analytics": {
+    "posthog": {
+      "apiKey": "phc_X7uV1sRNzjoTmWp8uXYrzrfrdUtGdMRTEEklRNt04eb"
+    }
+  },
   "backgroundImage":"/background.png",
   "feedback":{
     "thumbsRating":true
