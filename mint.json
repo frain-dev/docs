@@ -267,7 +267,8 @@
   ],
   "analytics": {
     "posthog": {
-      "apiKey": "phc_X7uV1sRNzjoTmWp8uXYrzrfrdUtGdMRTEEklRNt04eb"
+      "apiKey": "phc_X7uV1sRNzjoTmWp8uXYrzrfrdUtGdMRTEEklRNt04eb",
+      "apiHost": "https://us.i.posthog.com"
     }
   },
   "backgroundImage":"/background.png",
