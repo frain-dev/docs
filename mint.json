@@ -160,9 +160,6 @@
     {
       "group": "Webhook Guides",
       "pages": [
-        "xwebhook-guides/retries",
-	"xwebhook-guides/idempotency",
-	"xwebhook-guides/circuit-breaking",
         "webhook-guides/tackling-ssrf" 
       ]
     },
