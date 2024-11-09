@@ -43,7 +43,7 @@ To provide additional context, the formula is defined as follows:
 - **Capping**: The new strategy incorporates a default (but configurable) cap of **7200 seconds (**`maxRetrySeconds`) to prevent indefinitely long wait times, thus ensuring the system remains responsive and efficient.
 - **Jitter**: A `jitter` value is added to each calculated wait time, providing an additional layer of randomness that further helps distribute the retry attempts over time.
 
-We wrote an easy script to run these comparison [here](https://github.com/subomi/compare-retries). Feel free to tweak the input and analyse the output.
+We wrote a script to run these comparisons [here](https://github.com/subomi/compare-retries). Feel free to tweak the input and analyse the output.
 
 ### The Results
 
