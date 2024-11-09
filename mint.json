@@ -148,7 +148,7 @@
         "resources/glossary",
         "resources/telemetry",
         "resources/feature-flags",
-	      "resources/support-policy"
+	"resources/support-policy"
       ]
     },
     {
@@ -160,6 +160,7 @@
     {
       "group": "Webhook Guides",
       "pages": [
+	      "webhook-guides/webhook-retries",
         "webhook-guides/tackling-ssrf" 
       ]
     },
