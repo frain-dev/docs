@@ -17,8 +17,8 @@ Retry algorithms aren’t specific to webhooks, rather they’re a general techn
 
 An ideal webhook retry strategy should meet the following requirements: [1]
 
-1. The first 5 retries should happen in less than 30 minutes.
-2. The maximum retry should not exceed 24 hours.
+1. **Requirement 1:** The first 5 retries should happen in less than 30 minutes.
+2. **Requirement 2:** The maximum retry should not exceed 24 hours.
 
 Why? Webhooks power real-time notifications across apps. The keyword here is real-time. As with many things in software engineering, that word is overloaded and can mean different things depending on the context. In high-frequency trading, even a few microseconds of delay can result in significant financial losses. But this isn’t the case for a vast majority of webhooks. For example, a webhook from Linear to Slack with a 1-minute delay wouldn’t result in any significant financial loss or serious disruption to your business, especially when the delay is a result of failure in initial attempts.
 
