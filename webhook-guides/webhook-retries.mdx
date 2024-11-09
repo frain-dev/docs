@@ -8,12 +8,12 @@ Webhook retries are the mechanism of reattempting to deliver webhook events over
 
 Convoy is a flexible webhook gateway that can be configured to use either `linear` or `exponential backoff` retry strategy.
 
-### Comparing Retry Algorithms for Webhooks
+## Comparing Retry Algorithms for Webhooks
 Retry algorithms aren’t specific to webhooks, rather they’re a general technique used to solve various problems in distributed systems. But what would be appropriate retry configuration for a webhook provider? Most providers offer retries with exponential backoff. Let’s assess three retry strategies for webhooks
 
-- Linear Retry
-- Exponential Backoff
-- Exponential Backoff with capped duration.
+- `Linear Retry`
+- `Exponential Backoff`
+- `Exponential Backoff with capped duration`
 
 An ideal webhook retry strategy should meet the following requirements: [1]
 
@@ -33,7 +33,7 @@ Here’s the configuration for each retry strategy compared:
 With the following parameters
 
 - **Base:** 20 seconds
-- **Jitter: +/-** 10%
+- **Jitter:** +/-10%
 - **Delay Growth**: `delaySeconds * 2^attempt`
 - **Retry Limit:** 20
 
@@ -65,7 +65,7 @@ We didn’t include the pure exponential backoff strategy above because the char
   <img src="/images/exponent_plot.png" />
 </Frame>
 
-### Appendix
+## Appendix
 
 1. These numbers aren’t a hard and fast rule; rather, they’re a framework for reasoning about the latency requirements for your webhooks and tuning them accordingly. This would optimize your entire delivery process and save $$$ in compute. Feel free to use our script - [compare-retries](https://github.com/subomi/compare-retries).
 
