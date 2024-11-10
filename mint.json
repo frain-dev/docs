@@ -39,6 +39,10 @@
     {
       "name": "Webhook Guides",
       "url": "webhook-guides"
+    },
+    {
+      "name": "Changelog",
+      "url": "changelog" 
     }
   ],
   "navigation":[
@@ -123,12 +127,6 @@
       ]
     },
     {
-      "group":"Release Notes",
-      "pages":[
-        "release-notes/releases"
-      ]
-    },
-    {
       "group":"Cloud",
       "pages":[
         "cloud/cloud-upgrade-policy",
@@ -139,7 +137,7 @@
       "group":"Business & Enterprise",
       "pages":[
         "business-and-enterprise/licensing",
-	      "business-and-enterprise/paid-features"
+        "business-and-enterprise/paid-features"
       ]
     },
     {
@@ -160,8 +158,14 @@
     {
       "group": "Webhook Guides",
       "pages": [
-	      "webhook-guides/webhook-retries",
+        "webhook-guides/webhook-retries",
         "webhook-guides/tackling-ssrf" 
+      ]
+    },
+    {
+      "group": "Changelog",
+      "pages": [
+        "changelog/core-gateway" 
       ]
     },
     {
