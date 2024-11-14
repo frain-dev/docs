@@ -6,15 +6,18 @@ title: Licensing
 'twitter:url': https://docs.getconvoy.io/licensing/licensing
 ---
 
+import AddLicense from '/snippets/add-license.mdx';
+
 Convoy has three license tiers, namely `Community` which is the free plan, `Business` and `Enterprise`. This documentation will guide you on how to purchase a license,
 and configure the license key on your convoy instance(s). The pricing of all tiers can be found [here](https://getconvoy.io/pricing).
 
 ## Steps
 Follow the instructions below to create a license key:
 <Steps>
-    <Step title="Create an account or login to Convoy Cloud Saas">
-        [Convoy cloud](https://cloud.getconvoy.io)
-        <Frame>![Login or signup to convoy cloud](/images/login-to-convoy-cloud.png)</Frame>
+    <Step title="Register or login to Convoy Cloud">
+        <Frame caption="cloud.getconvoy.io">
+          <img src="/images/login-to-convoy-cloud.png" />
+        </Frame>
     </Step>
     <Step title="Navigate to the Licenses Page using the sidebar">
         <Frame>![naviagte to Licenses page using sidebar](/images/licenses-page.png)</Frame>
@@ -25,37 +28,8 @@ Follow the instructions below to create a license key:
     <Step title="Retrieve license key from your email">
         <Frame>![retrieve license key](/images/license-key-ready.png)</Frame>
     </Step>
-    <Step title="Going back to Convoy">
-        Supply your `License key` either by config file, cli flag or environment variable.
-
-        <Step title="License key in config file" stepNumber="a">
-            ```json
-            {
-                "database": {
-                    ....
-               },
-                "redis": {
-                    ...
-                },
-                "license_key": "",
-                "server": {
-                    .....
-                }
-            }
-            ```
-        </Step>
-
-        <Step title="License key in cli flag" stepNumber="b">
-            ```shell
-            $ convoy server --license-key="BE4334..."
-            ```
-        </Step>
-
-        <Step title="License key in environment variable" stepNumber="c">
-            ```
-            $ CONVOY_LICENSE_KEY="B20329...." convoy server
-            ```
-        </Step>
+    <Step title="Configure instance with license key">
+        <AddLicense />
     </Step>
 </Steps>
 
