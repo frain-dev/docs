@@ -139,7 +139,8 @@
       "group":"Business & Enterprise",
       "pages":[
         "business-and-enterprise/licensing",
-	      "business-and-enterprise/paid-features"
+        "business-and-enterprise/paid-features",
+	"business-and-enterprise/single-sign-on"
       ]
     },
     {
