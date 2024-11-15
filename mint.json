@@ -160,7 +160,8 @@
       "group": "Webhook Guides",
       "pages": [
         "webhook-guides/webhook-retries",
-        "webhook-guides/tackling-ssrf" 
+        "webhook-guides/tackling-ssrf",
+	"webhook-guides/circuit-breaking"
       ]
     },
     {
