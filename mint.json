@@ -6,12 +6,12 @@
   },
   "favicon":"/favicon.png",
   "colors":{
-    "primary":"#477BD3",
+    "primary":"#2780F1",
     "light":"#739FEA",
     "dark":"#477BD3"
   },
   "topbarCtaButton":{
-    "name":"Start Your Project",
+    "name":"Try for free",
     "url":"https://cloud.getconvoy.io/signup"
   },
   "anchors":[
@@ -132,6 +132,13 @@
         "cloud/cloud-upgrade-policy",
         "cloud/cloud-subscription-policy"
       ]
+    },
+    {
+	    "group": "Legal",
+	    "pages": [
+		    "legal/support-policy",
+		    "legal/software-license-agreement" 
+	    ]
     },
     {
       "group":"Business & Enterprise",
